@@ -6,12 +6,16 @@
 
 		// Child modules
 		var autoprefixer = require('autoprefixer-core'),
-			mqpacker = require('css-mqpacker'),
-			csswring = require('csswring');
+			csswring = require('csswring'),
+			mqpacker = require('css-mqpacker');
 
 		// Return module
 		return function() {
 
+			// Get base CSS config
+			var settings = plugins.getModule('css/config');
+
+			// Module options
 			var options = {
 
 				autoprefixer: {
@@ -23,15 +27,23 @@
 
 				sass: {
 					errLogToConsole: true,
-					style: 'compressed'
+					style: 'compressed',
+
+					importer: function(uri, prev, done) {
+						done(plugins.sass.compiler.types.NULL);
+					}
 				}
 			};
 
-			return gulp.src(plugins.path.join(paths.assets.css, '*.scss'))
+			// Set up eyeglass
+			var eyeglass = require('eyeglass')(options.sass);
+			eyeglass.enableImportOnce = false;
+
+			return gulp.src(settings.dependencies.concat(settings.partials))
 
 				// Process Sass
 				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.sass(options.sass))
+				.pipe(plugins.sass(eyeglass.sassOptions()).on('error', plugins.sass.logError))
 
 				// Process PostCSS
 				.pipe(plugins.postcss([
@@ -40,7 +52,7 @@
 				]))
 
 				// Rename, write to files
-				.pipe(plugins.rename({ suffix: '.min' }))
+				.pipe(plugins.concat('main.min.css'))
 				.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/scss/' }))
 				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/css')))
 

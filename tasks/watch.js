@@ -15,7 +15,7 @@
 
 			// Watch for CSS changes
 			plugins.watch(pathCSS, function() {
-				gulp.start('css');
+				gulp.start('bundle-css');
 			});
 
 			// Watch for JS changes

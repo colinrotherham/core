@@ -43,7 +43,7 @@
 		return require(plugins.path.join(paths.tasks, task))(paths, gulp, plugins);
 	}
 
-	gulp.task('bundle-css', plugins.getModule('css'));
+	gulp.task('bundle-css', plugins.getModule('css/bundle'));
 	gulp.task('bundle-libs', plugins.getModule('javascript/bundle-libs'));
 	gulp.task('bundle-modules', plugins.getModule('javascript/bundle-modules'));
 	gulp.task('html', plugins.getModule('html'));

@@ -1,0 +1,23 @@
+/*
+	Font mixins
+	----------------------------------- */
+
+	@mixin font-size($size, $line-height, $multiplier: 1em) {
+		font-size: ($size/16) * $multiplier;
+	}
+
+	@mixin line-height($size, $line-height, $multiplier: 1em) {
+		line-height: ($line-height/$size) * $multiplier;
+	}
+
+	@mixin letter-spacing($size, $letter-spacing, $multiplier: 1em) {
+		letter-spacing: ($letter-spacing/1000) * ($size/16) * $multiplier;
+	}
+
+	// Photoshop helper mixin
+	@mixin font-attributes($size, $line-height, $letter-spacing: 0, $multiplier: 1em)
+	{
+		@include font-size($size, $line-height, $multiplier);
+		@include line-height($size, $line-height, $multiplier);
+		@include letter-spacing($size, $letter-spacing, $multiplier);
+	}
