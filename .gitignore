@@ -1,7 +1,7 @@
 dist
 node_modules
 .sass-cache
-**/css/*
-**/js/*.min.js
-**/js/*.map
+**/assets/css/*
+**/assets/js/*.min.js
+**/assets/js/*.map
 *.log
