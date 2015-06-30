@@ -7,12 +7,12 @@
 		// Return module
 		return function() {
 
-			var settings = {
+			var options = {
 				browser: 'google chrome',
 				notify: false,
 				server: { baseDir: paths.build }
 			};
 
-			return plugins.browserSync(settings);
+			return plugins.browserSync(options);
 		};
 	};

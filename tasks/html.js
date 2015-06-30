@@ -11,7 +11,7 @@
 		return function() {
 
 			// Default page options
-			var settings = {
+			var options = {
 				layout: 'default',
 				name: 'default',
 				locale: 'en-GB',
@@ -25,7 +25,7 @@
 			assemble.partials(plugins.path.join(paths.html, 'partials/*.hbs'));
 
 			// Build templates
-			return assemble.src(plugins.path.join(paths.html, '*.hbs'), settings)
+			return assemble.src(plugins.path.join(paths.html, '*.hbs'), options)
 				.pipe(plugins.rename({ extname: '.html' }))
 				.pipe(assemble.dest(paths.build))
 				.pipe(plugins.browserSync.reload({ stream: true }));

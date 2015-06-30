@@ -12,7 +12,7 @@
 		// Return module
 		return function() {
 
-			var settings = {
+			var options = {
 
 				autoprefixer: {
 					browsers: ['> 2%', 'IE >= 8', 'iOS >= 7'],
@@ -31,11 +31,11 @@
 
 				// Process Sass
 				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.sass(settings.sass))
+				.pipe(plugins.sass(options.sass))
 
 				// Process PostCSS
 				.pipe(plugins.postcss([
-					autoprefixer(settings.autoprefixer),
+					autoprefixer(options.autoprefixer),
 					csswring, mqpacker
 				]))
 

@@ -10,13 +10,13 @@
 		// Return module
 		return function() {
 
-			var settings = {
+			var options = {
 				progressive: true,
 				use: [pngquant()]
 			};
 
 			return gulp.src(plugins.path.join(paths.assets.images, '{,*/}*.{png,jpg,gif}'))
-				.pipe(plugins.imagemin(settings))
+				.pipe(plugins.imagemin(options))
 				.pipe(gulp.dest(paths.assets.images));
 		};
 	};
