@@ -2,6 +2,7 @@
   "name": "@colinrotherham/core",
   "version": "1.0.0",
   "description": "Core Project Build",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/colinrotherham/core.git"
