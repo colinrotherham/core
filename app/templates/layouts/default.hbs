@@ -1,0 +1,26 @@
+<!doctype html>
+<html{{#if locale}} lang="{{locale}}"{{/if}}>
+	<head>
+		<meta charset="utf-8">
+		<title>{{title}}</title>
+
+		{{#if description}}<!-- Meta description -->
+		<meta name="description" content="{{description}}">{{/if}}
+
+		<!-- Handheld support -->
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<!-- CSS include -->
+		<link rel="stylesheet" href="/assets/css/main.min.css?v={{timestamp}}">
+
+		<!-- Toggle advanced UI -->
+		<script>document.documentElement.className = 'advanced';</script>
+	</head>
+	<body class="page page--{{name}}">
+		{% body %}
+
+		<!-- Script includes -->
+		<script src="/assets/js/main-libs.min.js?v={{timestamp}}"></script>
+		<script src="/assets/js/main.min.js?v={{timestamp}}"></script>
+	</body>
+</html>

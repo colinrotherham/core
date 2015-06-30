@@ -1,0 +1,7 @@
+dist
+node_modules
+.sass-cache
+**/css/*
+**/js/*.min.js
+**/js/*.map
+*.log

@@ -1,0 +1,43 @@
+{
+  "name": "@colinrotherham/core",
+  "version": "1.0.0",
+  "description": "Core Project Build",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/colinrotherham/core.git"
+  },
+  "author": "Colin Rotherham",
+  "homepage": "https://github.com/colinrotherham/core",
+  "devDependencies": {
+    "amd-optimize": "^0.4.4",
+    "assemble": "assemble/assemble#v0.6.0",
+    "autoprefixer-core": "^5.2.1",
+    "browser-sync": "~2.7.12",
+    "components-webfontloader": "~1.5.2",
+    "css-mqpacker": "^3.1.0",
+    "csswring": "^3.0.5",
+    "del": "^1.2.0",
+    "event-stream": "^3.3.1",
+    "fg-loadcss": "^0.1.6",
+    "fg-loadjs": "^0.2.0",
+    "gulp": "^3.9.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-filter": "^2.0.2",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-load-plugins": "^1.0.0-rc.1",
+    "gulp-newer": "^0.5.1",
+    "gulp-postcss": "^5.1.9",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "^2.0.3",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-uglify": "~1.2.0",
+    "gulp-watch": "~4.2.4",
+    "gulp-wrap-amd": "^0.5.0",
+    "imagemin-pngquant": "^4.1.0",
+    "jquery": "~2.1.4",
+    "jquery.requestAnimationFrame": "git+https://github.com/gnarf/jquery-requestAnimationFrame.git",
+    "picturefill": "^2.3.1",
+    "requirejs": "^2.1.18",
+    "run-sequence": "^1.1.1"
+  }
+}
