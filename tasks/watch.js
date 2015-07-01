@@ -7,11 +7,15 @@
 		// Return module
 		return function() {
 
+			// Source paths
 			var pathCSS = plugins.path.join(paths.assets.css, '{,*/}*.scss'),
 				pathJS = plugins.path.join(paths.assets.js, 'src/{,*/}*.js'),
 				pathFonts = plugins.path.join(paths.assets.fonts, '**'),
 				pathImages = plugins.path.join(paths.assets.images, '**'),
 				pathHTML = plugins.path.join(paths.html, '{,*/}*.hbs');
+
+			// Critical build paths (e.g. rebuild HTML when critical styles change)
+			var pathCriticalCSS = plugins.path.join(paths.build, 'assets/css/starter.min.css');
 
 			// Watch for CSS changes
 			plugins.watch(pathCSS, function() {
@@ -24,7 +28,7 @@
 			});
 
 			// Watch for HTML changes
-			plugins.watch(pathHTML, function() {
+			plugins.watch([pathHTML, pathCriticalCSS], function() {
 				gulp.start('html');
 			});
 
