@@ -31,7 +31,7 @@
 			}
 
 			// Merge two glob streams
-			plugins.eventStream.merge(
+			return plugins.eventStream.merge(
 
 				// Prepend config file
 				gulp.src(settings.AMD.configFile),
