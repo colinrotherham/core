@@ -2,10 +2,13 @@
 	HTML
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
 		var assemble = require('assemble');
+
+		// Add helpers
+		assemble.helper('outputFileContent', plugins.getModule('html/helpers/outputFileContent'));
 
 		// Return module
 		return function() {

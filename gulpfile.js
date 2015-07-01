@@ -46,7 +46,7 @@
 	gulp.task('bundle-css', plugins.getModule('css/bundle'));
 	gulp.task('bundle-libs', plugins.getModule('javascript/bundle-libs'));
 	gulp.task('bundle-modules', plugins.getModule('javascript/bundle-modules'));
-	gulp.task('html', plugins.getModule('html'));
+	gulp.task('html', plugins.getModule('html/html'));
 	gulp.task('images', plugins.getModule('images'));
 	gulp.task('watch', plugins.getModule('watch'));
 	gulp.task('browser-sync', plugins.getModule('browser-sync'));
@@ -76,7 +76,7 @@
 
 	// Shared build tasks
 	gulp.task('build', ['clean'], function() {
-		return gulp.start('bundle-css', 'bundle-libs', 'bundle-modules', 'html');
+		plugins.runSequence(['bundle-css', 'bundle-libs', 'bundle-modules'], 'html');
 	});
 
 	// Default tasks
