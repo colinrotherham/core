@@ -39,6 +39,7 @@
 				// RequireJS modules
 				gulp.src(settings.modules)
 					.pipe(plugins.sourcemaps.init())
+					.pipe(plugins.jscs())
 					.pipe(amdOptimize('main', settings.AMD))
 					.pipe(plugins.sourcemaps.write()))
 
