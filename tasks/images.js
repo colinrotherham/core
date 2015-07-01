@@ -2,7 +2,7 @@
 	Images
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
 		var pngquant = require('imagemin-pngquant');

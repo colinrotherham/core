@@ -2,7 +2,7 @@
 	CSS
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
 		var autoprefixer = require('autoprefixer-core'),

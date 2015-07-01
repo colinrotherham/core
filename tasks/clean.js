@@ -2,7 +2,7 @@
 	Clean
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Return module
 		return function(callback) {

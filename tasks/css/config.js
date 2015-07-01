@@ -2,7 +2,7 @@
 	CSS Config
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Return configuration
 		return {

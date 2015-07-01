@@ -2,7 +2,7 @@
 	JavaScript Modules
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
 		var amdOptimize = require('amd-optimize'),

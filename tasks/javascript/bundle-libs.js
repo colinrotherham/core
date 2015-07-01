@@ -2,7 +2,7 @@
 	JavaScript Libraries
 	----------------------------------- */
 
-	module.exports = function (paths, gulp, plugins) {
+	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules etc
 		var settings = plugins.getModule('javascript/config');
