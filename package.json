@@ -39,7 +39,7 @@
     "gulp-watch": "~4.2.4",
     "gulp-wrap-amd": "^0.5.0",
     "imagemin-pngquant": "^4.1.0",
-    "jquery": "~2.1.4",
+    "jquery": "~1.11.3",
     "jquery.requestAnimationFrame": "git+https://github.com/gnarf/jquery-requestAnimationFrame.git",
     "normalize.css": "^3.0.3",
     "picturefill": "^2.3.1",
