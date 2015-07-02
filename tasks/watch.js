@@ -12,6 +12,7 @@
 				pathJS = plugins.path.join(paths.assets.js, 'src/{,*/}*.js'),
 				pathFonts = plugins.path.join(paths.assets.fonts, '**'),
 				pathImages = plugins.path.join(paths.assets.images, '**'),
+				pathSVG = plugins.path.join(paths.assets.images, '*.svg'),
 				pathHTML = plugins.path.join(paths.html, '{,*/}*.hbs');
 
 			// Critical build paths (e.g. rebuild HTML when critical styles change)
@@ -30,6 +31,11 @@
 			// Watch for HTML changes
 			plugins.watch([pathHTML, pathCriticalCSS], function() {
 				gulp.start('html');
+			});
+
+			// Watch for SVG changes
+			plugins.watch(pathSVG, function() {
+				gulp.start('image-fallbacks');
 			});
 
 			// Watch for static asset changes
