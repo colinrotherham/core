@@ -75,7 +75,8 @@
 			// Process each bundle
 			return plugins.eventStream.merge(
 				processBundle('starter', settings.starter.dependencies.concat(settings.starter.partials), options),
-				processBundle('main', settings.main.dependencies.concat(settings.main.partials), options)
+				processBundle('main', settings.main.dependencies.concat(settings.main.partials), options),
+				processBundle('legacy', settings.legacy.dependencies.concat(settings.legacy.partials), options)
 			);
 		};
 	};

@@ -8,5 +8,8 @@
 	// Mixins etc
 	@import 'modules/fonts';
 
+	// Base partials
+	@import 'base/variables';
+
 	// Main partials
 	@import 'partials/footer';

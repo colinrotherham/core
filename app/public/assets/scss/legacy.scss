@@ -1,0 +1,18 @@
+/*
+	Legacy IE browser styles
+	----------------------------------- */
+
+	// Modules via npm + eyeglass
+	@import 'breakpoint';
+
+	// Disable media queries
+	@include breakpoint-set('no queries', true);
+
+	// Re-import main stylesheets
+	@import 'starter';
+	@import 'main';
+
+	// Hard code widths
+	body {
+		min-width: 1024px;
+	}
