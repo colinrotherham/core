@@ -75,18 +75,18 @@
 	----------------------------------- */
 
 	// Shared build tasks
-	gulp.task('build', ['clean'], function() {
-		plugins.runSequence(['bundle-css', 'bundle-libs', 'bundle-modules'], 'html');
+	gulp.task('build', ['clean'], function(callback) {
+		plugins.runSequence(['bundle-css', 'bundle-libs', 'bundle-modules'], 'html', callback);
 	});
 
 	// Default tasks
-	gulp.task('default', ['clean'], function() {
-		plugins.runSequence('build', 'copy');
+	gulp.task('default', ['clean'], function(callback) {
+		plugins.runSequence('build', 'copy', callback);
 	});
 
 	// Development tasks
-	gulp.task('dev', ['clean'], function() {
-		plugins.runSequence('build', 'copy', ['watch', 'browser-sync']);
+	gulp.task('dev', ['clean'], function(callback) {
+		plugins.runSequence('build', 'copy', ['watch', 'browser-sync'], callback);
 	});
 
 	// Live tasks
