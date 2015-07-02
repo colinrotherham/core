@@ -47,7 +47,7 @@
 	gulp.task('bundle-libs', plugins.getModule('javascript/bundle-libs'));
 	gulp.task('bundle-modules', plugins.getModule('javascript/bundle-modules'));
 	gulp.task('html', plugins.getModule('html/html'));
-	gulp.task('images', plugins.getModule('images'));
+	gulp.task('image-optimise', plugins.getModule('images/optimise'));
 	gulp.task('watch', plugins.getModule('watch'));
 	gulp.task('browser-sync', plugins.getModule('browser-sync'));
 
@@ -90,4 +90,6 @@
 	});
 
 	// Live tasks
-	gulp.task('live', ['default']);
+	gulp.task('live', ['default'], function(callback) {
+		gulp.start('image-optimise', callback);
+	});

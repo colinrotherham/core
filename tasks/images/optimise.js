@@ -1,5 +1,5 @@
 /*
-	Images
+	Optimise images
 	----------------------------------- */
 
 	module.exports = function(paths, gulp, plugins) {
