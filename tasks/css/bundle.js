@@ -5,8 +5,9 @@
 	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
-		var autoprefixer = require('autoprefixer-core'),
+		var autoprefixer = require('autoprefixer'),
 			csswring = require('csswring'),
+			eyeglass = require('eyeglass').decorate,
 			mqpacker = require('css-mqpacker');
 
 		// Prepare bundle
@@ -16,7 +17,7 @@
 
 				// Process Sass
 				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
+				.pipe(plugins.sass(eyeglass(options.sass, plugins.sass)).on('error', plugins.sass.logError))
 
 				// Process PostCSS
 				.pipe(plugins.postcss([
@@ -57,6 +58,9 @@
 
 				sass: {
 					errLogToConsole: true,
+					eyeglass: {
+						enableImportOnce: true
+					},
 					style: 'compressed',
 
 					importer: function(uri, prev, done) {
@@ -64,13 +68,6 @@
 					}
 				}
 			};
-
-			// Set up eyeglass
-			var eyeglass = require('eyeglass')(options.sass);
-			eyeglass.enableImportOnce = false;
-
-			// Update Sass options
-			options.sass = eyeglass.sassOptions();
 
 			// Process each bundle
 			return plugins.eventStream.merge(
