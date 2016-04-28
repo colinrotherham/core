@@ -28,8 +28,8 @@
 				modules: {
 					webfont: plugins.path.join(paths.modules, 'components-webfontloader/webfont'),
 					loadJS: plugins.path.join(paths.modules, 'fg-loadjs/loadJS'),
-					loadCSS: plugins.path.join(paths.modules, 'fg-loadcss/loadCSS'),
-					onloadCSS: plugins.path.join(paths.modules, 'fg-loadcss/onloadCSS')
+					loadCSS: plugins.path.join(paths.modules, 'fg-loadcss/src/loadCSS'),
+					onloadCSS: plugins.path.join(paths.modules, 'fg-loadcss/src/onloadCSS')
 				}
 			},
 		};

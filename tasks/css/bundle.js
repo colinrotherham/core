@@ -7,7 +7,7 @@
 		// Child modules
 		var autoprefixer = require('autoprefixer'),
 			csswring = require('csswring'),
-			eyeglass = require('eyeglass').decorate,
+			eyeglass = require('eyeglass'),
 			mqpacker = require('css-mqpacker');
 
 		// Prepare bundle
