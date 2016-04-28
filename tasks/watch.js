@@ -8,12 +8,12 @@
 		return function() {
 
 			// Source paths
-			var pathCSS = plugins.path.join(paths.assets.css, '{,**/}*.scss'),
-				pathJS = plugins.path.join(paths.assets.js, 'src/{,**/}*.js'),
+			var pathCSS = plugins.path.join(paths.assets.css, '**/*.scss'),
+				pathJS = plugins.path.join(paths.assets.js, '**/*.js'),
 				pathFonts = plugins.path.join(paths.assets.fonts, '**'),
 				pathImages = plugins.path.join(paths.assets.images, '**'),
-				pathSVG = plugins.path.join(paths.assets.images, '{,**/}*.svg'),
-				pathHTML = plugins.path.join(paths.html, '{,**/}*.hbs');
+				pathSVG = plugins.path.join(paths.assets.images, '**/*.svg'),
+				pathHTML = plugins.path.join(paths.html, '**/*.hbs');
 
 			// Critical build paths (e.g. rebuild HTML when critical styles change)
 			var pathCriticalCSS = plugins.path.join(paths.build, 'assets/css/starter.min.css');
