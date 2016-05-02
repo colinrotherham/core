@@ -16,7 +16,6 @@
 
 			// Default page options
 			var options = {
-				layout: 'default',
 				name: 'default',
 				locale: 'en-GB',
 
