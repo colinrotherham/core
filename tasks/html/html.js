@@ -5,10 +5,11 @@
 	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
-		var assemble = require('assemble');
+		var assemble = require('assemble'),
+			app = assemble();
 
 		// Add helpers
-		assemble.helper('outputFileContent', plugins.getModule('html/helpers/outputFileContent'));
+		app.helper('outputFileContent', plugins.getModule('html/helpers/outputFileContent'));
 
 		// Return module
 		return function() {
@@ -24,13 +25,14 @@
 			};
 
 			// Find layouts and partials
-			assemble.layouts(plugins.path.join(paths.html, 'layouts/*.hbs'));
-			assemble.partials(plugins.path.join(paths.html, 'partials/*.hbs'));
+			app.layouts(plugins.path.join(paths.html, 'layouts/*.hbs'));
+			app.partials(plugins.path.join(paths.html, 'partials/*.hbs'));
 
 			// Build templates
-			return assemble.src(plugins.path.join(paths.html, '*.hbs'), options)
+			return app.src(plugins.path.resolve(paths.html, '*.hbs'))
+				.pipe(app.renderFile(options))
 				.pipe(plugins.rename({ extname: '.html' }))
-				.pipe(assemble.dest(paths.build))
+				.pipe(app.dest(paths.build))
 				.pipe(plugins.browserSync.reload({ stream: true }));
 		};
 	};

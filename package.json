@@ -12,6 +12,7 @@
   "devDependencies": {
     "amd-optimize": "^0.6.1",
     "assemble": "assemble/assemble#v0.6.0",
+    "assemble": "v0.10.0",
     "autoprefixer": "^6.3.6",
     "breakpoint-sass": "^2.7.0",
     "browser-sync": "~2.12.5",
