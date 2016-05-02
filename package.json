@@ -11,7 +11,6 @@
   "homepage": "https://github.com/colinrotherham/core",
   "devDependencies": {
     "amd-optimize": "^0.6.1",
-    "assemble": "assemble/assemble#v0.6.0",
     "assemble": "v0.10.0",
     "autoprefixer": "^6.3.6",
     "breakpoint-sass": "^2.7.0",
@@ -41,7 +40,6 @@
     "gulp-wrap-amd": "^0.5.0",
     "imagemin-pngquant": "^4.2.2",
     "jquery": "~2.2.3",
-    "jquery.requestAnimationFrame": "git+https://github.com/gnarf/jquery-requestAnimationFrame.git",
     "normalize.css": "^4.1.1",
     "picturefill": "^3.0.2",
     "requirejs": "^2.2.0",

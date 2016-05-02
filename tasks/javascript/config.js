@@ -20,8 +20,7 @@
 				utilities: {
 					requirejs: plugins.path.join(paths.modules, 'requirejs/require'),
 					picturefill: plugins.path.join(paths.modules, 'picturefill/dist/picturefill'),
-					jquery: plugins.path.join(paths.modules, 'jquery/dist/jquery'),
-					requestAnimationFrame: plugins.path.join(paths.modules, 'jquery.requestAnimationFrame/dist/jquery.requestAnimationFrame')
+					jquery: plugins.path.join(paths.modules, 'jquery/dist/jquery')
 				},
 
 				// Wrap as named AMD modules
