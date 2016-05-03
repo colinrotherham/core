@@ -10,6 +10,7 @@
 			var options = {
 				browser: 'google chrome',
 				notify: false,
+				open: false,
 				server: { baseDir: paths.build }
 			};
 
