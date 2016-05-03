@@ -5,48 +5,52 @@
 	module.exports = function(paths, gulp, plugins) {
 
 		// Child modules
-		var amdOptimize = require('amd-optimize'),
-			util = require('util');
+		var browserify = require('browserify'),
+			buffer = require('vinyl-buffer'),
+			source = require('vinyl-source-stream');
+
+		// Get base JavaScript config
+		var settings = plugins.getModule('javascript/config'),
+			utilities = settings.dependencies;
+
+		// Default settings
+		settings.browserify = {
+			alias: [],
+			debug: true,
+			external: [],
+			entries: plugins.path.join(paths.assets.js, 'src/main.js'),
+			paths: [
+				plugins.path.resolve(paths.assets.js, 'src/')
+			]
+		};
+
+		// Mark all library includes as external
+		for (var utility in utilities) {
+			settings.browserify.alias.push(utilities[utility] + ':' + utility);
+			settings.browserify.external.push(utilities[utility]);
+		}
+
+		// Configure
+		var b = browserify(settings.browserify);
+
+		// Mark all library includes as external
+		for (var utility in utilities) {
+			b.external(utility);
+		}
 
 		// Return module
 		return function() {
 
-			// Get base JavaScript config
-			var settings = plugins.getModule('javascript/config'),
-				dependencies = util._extend(settings.dependencies.utilities, settings.dependencies.modules);
+			return b.bundle()
+				.pipe(plugins.plumber())
 
-			// AMD settings
-			settings.AMD = {
-				basePath: '/assets/js/src/partials',
-				configFile: plugins.path.join(paths.assets.js, 'src/config.js'),
-				exclude: [],
-				findNestedDependencies: true,
-				paths: {}
-			};
+				// Load files
+				.pipe(source(plugins.path.join(paths.assets.js, 'src/main.js')))
+				.pipe(buffer())
 
-			// Exclude all library paths etc
-			for (var dependency in dependencies) {
-				settings.AMD.paths[dependency] = dependencies[dependency];
-				settings.AMD.exclude.push(dependency);
-			}
-
-			// Merge two glob streams
-			return plugins.eventStream.merge(
-
-				// Prepend config file
-				gulp.src(settings.AMD.configFile),
-
-				// RequireJS modules
-				gulp.src(settings.modules)
-					.pipe(plugins.sourcemaps.init())
-					.pipe(plugins.jscs())
-					.pipe(amdOptimize('main', settings.AMD))
-					.pipe(plugins.sourcemaps.write()))
-
-				.pipe(plugins.sourcemaps.init({ loadMaps: true }))
-
-				// Uglify and combine
-				.pipe(plugins.uglify())
+				// Start sourcemaps, uglify and switch to build location
+				.pipe(plugins.sourcemaps.init())
+				// .pipe(plugins.uglify())
 				.pipe(plugins.concat('main.min.js'))
 
 				// Write to files

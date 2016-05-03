@@ -2,4 +2,4 @@
 	Start app
 	------------------------------- */
 
-	require(['app']);
+	new (require('partials/app'))();

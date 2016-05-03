@@ -4,51 +4,45 @@
 
 	module.exports = function(paths, gulp, plugins) {
 
-		// Child modules etc
-		var settings = plugins.getModule('javascript/config');
+		// Child modules
+		var browserify = require('browserify'),
+			buffer = require('vinyl-buffer'),
+			source = require('vinyl-source-stream');
 
-		// Prepare [un]wrapped stream
-		function uglifyStream(glob, params) {
+		// Configure
+		var b = browserify({
+			debug: true
+		});
 
-			var stream = gulp.src(glob, { base: process.cwd() })
-				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.uglify())
-
-			// Name AMD ModuleID as file basename
-			if (params && params.wrap) {
-
-				stream.pipe(plugins.rename({ base: '', dirname: '/temp' }))
-					.pipe(plugins.wrapAmd({ moduleRoot: 'temp/' }))
-					.pipe(plugins.uglify());
-			}
-
-			return stream;
-		}
-
+		// Return module
 		return function() {
 
-			var dependencies = {
-				utilities: [],
-				modules: []
-			};
+			// Get base JavaScript config
+			var settings = plugins.getModule('javascript/config'),
+				utilities = settings.dependencies;
 
-			// Build utilities glob from AMD paths
-			for (var dependency in settings.dependencies.utilities) {
-				dependencies.utilities.push(settings.dependencies.utilities[dependency] + '.js');
+			// Mark all library includes as external
+			for (var utility in utilities) {
+				b.require(utilities[utility], { expose: utility });
 			}
 
-			// Build modules glob from AMD paths
-			for (var dependency in settings.dependencies.modules) {
-				dependencies.modules.push(settings.dependencies.modules[dependency] + '.js');
-			}
+			return b.bundle()
+				.pipe(plugins.plumber())
 
-			// Merge two glob streams
-			plugins.eventStream.merge(
-				uglifyStream(dependencies.utilities, { wrap: false }),
-				uglifyStream(dependencies.modules, { wrap: true }))
+				// Load files
+				.pipe(source(plugins.path.join(paths.assets.js, 'src/main.js')))
+				.pipe(buffer())
+
+				// Uglify and switch to build location
+				.pipe(plugins.uglify())
+				.pipe(plugins.concat('main-libs.min.js'))
+
+				// Start sourcemaps, uglify and switch to build location
+				.pipe(plugins.sourcemaps.init())
+				// .pipe(plugins.uglify())
+				.pipe(plugins.concat('main-libs.min.js'))
 
 				// Write to files
-				.pipe(plugins.concat('main-libs.min.js'))
 				.pipe(plugins.sourcemaps.write('.'))
 				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/js')))
 

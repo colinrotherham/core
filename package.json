@@ -10,11 +10,11 @@
   "author": "Colin Rotherham",
   "homepage": "https://github.com/colinrotherham/core",
   "devDependencies": {
-    "amd-optimize": "^0.6.1",
     "assemble": "v0.10.0",
     "autoprefixer": "^6.3.6",
     "breakpoint-sass": "^2.7.0",
     "browser-sync": "~2.12.5",
+    "browserify": "^13.0.0",
     "components-webfontloader": "~1.5.2",
     "css-mqpacker": "^4.0.1",
     "csswring": "^4.2.3",
@@ -30,6 +30,7 @@
     "gulp-jscs": "^3.0.2",
     "gulp-load-plugins": "^1.2.2",
     "gulp-newer": "^1.1.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-postcss": "^6.1.1",
     "gulp-rename": "~1.2.2",
     "gulp-sass": "^2.3.1",
@@ -42,7 +43,8 @@
     "jquery": "~2.2.3",
     "normalize.css": "^4.1.1",
     "picturefill": "^3.0.2",
-    "requirejs": "^2.2.0",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   }
 }
