@@ -39,6 +39,7 @@
     "gulp-uglify": "~1.5.3",
     "gulp-watch": "~4.3.5",
     "gulp-wrap-amd": "^0.5.0",
+    "handlebars-helpers": "github:assemble/handlebars-helpers#dev",
     "imagemin-pngquant": "^5.0.0",
     "jquery": "~2.2.3",
     "normalize.css": "^4.1.1",

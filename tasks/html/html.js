@@ -27,6 +27,9 @@
 			app.layouts(plugins.path.join(paths.html, 'layouts/*.hbs'));
 			app.partials(plugins.path.join(paths.html, 'partials/*.hbs'));
 
+			// Add classic helpers
+			app.helpers(require('handlebars-helpers')(), app.helpers);
+
 			// Build templates
 			return app.src(plugins.path.resolve(paths.html, '*.hbs'))
 				.pipe(app.renderFile(options))
