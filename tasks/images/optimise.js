@@ -15,7 +15,7 @@
 				use: [pngquant()]
 			};
 
-			return gulp.src(plugins.path.join(paths.build, 'assets/img/{,**/}*.{png,jpg,gif}'))
+			return gulp.src(plugins.path.resolve(paths.build, '**/*.{png,jpg,gif}'))
 				.pipe(plugins.imagemin(options))
 				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/img')));
 		};

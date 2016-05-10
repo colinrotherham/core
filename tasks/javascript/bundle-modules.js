@@ -18,9 +18,9 @@
 			alias: [],
 			debug: true,
 			external: [],
-			entries: plugins.path.join(paths.assets.js, 'src/main.js'),
+			entries: plugins.path.resolve(paths.src, 'public/assets/js/src/main.js'),
 			paths: [
-				plugins.path.resolve(paths.assets.js, 'src/')
+				plugins.path.resolve(paths.src, 'public/assets/js/src/')
 			]
 		};
 
@@ -45,12 +45,12 @@
 				.pipe(plugins.plumber())
 
 				// Load files
-				.pipe(source(plugins.path.join(paths.assets.js, 'src/main.js')))
+				.pipe(source(plugins.path.resolve(paths.src, 'public/assets/js/src/main.js')))
 				.pipe(buffer())
 
 				// Start sourcemaps, uglify and switch to build location
 				.pipe(plugins.sourcemaps.init())
-				// .pipe(plugins.uglify())
+				.pipe(plugins.uglify())
 				.pipe(plugins.concat('main.min.js'))
 
 				// Write to files

@@ -30,7 +30,7 @@
 				.pipe(plugins.plumber())
 
 				// Load files
-				.pipe(source(plugins.path.join(paths.assets.js, 'src/main.js')))
+				.pipe(source(plugins.path.resolve(paths.src, 'public/assets/js/src/main.js')))
 				.pipe(buffer())
 
 				// Uglify and switch to build location
@@ -39,12 +39,12 @@
 
 				// Start sourcemaps, uglify and switch to build location
 				.pipe(plugins.sourcemaps.init())
-				// .pipe(plugins.uglify())
+				.pipe(plugins.uglify())
 				.pipe(plugins.concat('main-libs.min.js'))
 
 				// Write to files
 				.pipe(plugins.sourcemaps.write('.'))
-				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/js')))
+				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/js')))
 
 				// Filter out sourcemaps, reload in browser
 				.pipe(plugins.filter('**/*.js'))

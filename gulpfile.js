@@ -12,27 +12,8 @@
 	plugins.runSequence = require('run-sequence');
 	plugins.eventStream = require('event-stream');
 
-	// Shared paths
-	var paths = {
-
-		// Build paths
-		base: __dirname,
-		build: plugins.path.join(__dirname, 'dist'),
-		src: plugins.path.join(__dirname, 'app'),
-		tasks: plugins.path.join(__dirname, 'tasks'),
-
-		// Public assets
-		assets: {
-			css: plugins.path.join(__dirname, 'app/public/assets/scss'),
-			js: plugins.path.join(__dirname, 'app/public/assets/js'),
-			fonts: plugins.path.join(__dirname, 'app/public/assets/fonts'),
-			images: plugins.path.join(__dirname, 'app/public/assets/img')
-		},
-
-		// HTML templates, node modules
-		html: plugins.path.join(__dirname, 'app/templates'),
-		modules: plugins.path.join(__dirname, 'node_modules')
-	};
+	// Fetch config
+	var config = require('./package.json').config;
 
 
 /*
@@ -40,9 +21,11 @@
 	----------------------------------- */
 
 	plugins.getModule = function(task) {
-		return require(plugins.path.join(paths.tasks, task))(paths, gulp, plugins);
+		return require(plugins.path.resolve(config.paths.tasks, task))(config.paths, gulp, plugins);
 	}
 
+	gulp.task('clean', plugins.getModule('clean'));
+	gulp.task('copy', plugins.getModule('copy'));
 	gulp.task('bundle-css', plugins.getModule('css/bundle'));
 	gulp.task('lint-modules', plugins.getModule('javascript/lint'));
 	gulp.task('bundle-libs', plugins.getModule('javascript/bundle-libs'));
@@ -52,24 +35,6 @@
 	gulp.task('image-optimise', plugins.getModule('images/optimise'));
 	gulp.task('watch', plugins.getModule('watch'));
 	gulp.task('browser-sync', plugins.getModule('browser-sync'));
-
-
-/*
-	Utility tasks
-	----------------------------------- */
-
-	// Clean build directory
-	gulp.task('clean', function(callback) {
-		return require('del')(plugins.path.join(paths.build, '*'), callback);
-	});
-
-	// Copy into build directory
-	gulp.task('copy', function() {
-		return gulp.src(plugins.path.join(paths.src, 'public/**'), { dot: true })
-			.pipe(plugins.newer(paths.build))
-			.pipe(gulp.dest(paths.build))
-			.pipe(plugins.browserSync.reload({ stream: true }));
-	});
 
 
 /*

@@ -7,7 +7,7 @@
 		// Return module
 		return function() {
 
-			return gulp.src(plugins.path.join(paths.assets.images, '{,**/}*.svg'))
+			return gulp.src(plugins.path.resolve(paths.src, '**/*.{svg}'))
 				.pipe(plugins.svg2png())
 				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/img')))
 				.pipe(plugins.browserSync.reload({ stream: true }));

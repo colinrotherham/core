@@ -12,13 +12,7 @@
 
 				// Sass partials
 				partials: [
-					plugins.path.join(paths.assets.css, 'starter.scss'),
-				],
-
-				// Other dependencies
-				dependencies: [
-					plugins.path.join(paths.modules, 'breakpoint-sass/stylesheets/*.scss'),
-					plugins.path.join(paths.modules, 'normalize.css/normalize.css'),
+					plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss'),
 				]
 			},
 
@@ -27,12 +21,7 @@
 
 				// Sass partials
 				partials: [
-					plugins.path.join(paths.assets.css, 'main.scss'),
-				],
-
-				// Other dependencies
-				dependencies: [
-					plugins.path.join(paths.modules, 'breakpoint-sass/stylesheets/*.scss'),
+					plugins.path.resolve(paths.src, 'public/assets/scss/main.scss'),
 				]
 			},
 
@@ -41,12 +30,7 @@
 
 				// Sass partials
 				partials: [
-					plugins.path.join(paths.assets.css, 'legacy.scss'),
-				],
-
-				// Other dependencies
-				dependencies: [
-					plugins.path.join(paths.modules, 'breakpoint-sass/stylesheets/*.scss'),
+					plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss'),
 				]
 			}
 		};

@@ -56,24 +56,24 @@
 					removeAllComments: true
 				},
 
+				mqpacker: {
+					sort: true
+				},
+
 				sass: {
 					errLogToConsole: true,
 					eyeglass: {
 						enableImportOnce: true
 					},
-					style: 'compressed',
-
-					importer: function(uri, prev, done) {
-						done(plugins.sass.compiler.types.NULL);
-					}
+					outputStyle: 'compressed'
 				}
 			};
 
 			// Process each bundle
 			return plugins.eventStream.merge(
-				processBundle('starter', settings.starter.dependencies.concat(settings.starter.partials), options),
-				processBundle('main', settings.main.dependencies.concat(settings.main.partials), options),
-				processBundle('legacy', settings.legacy.dependencies.concat(settings.legacy.partials), options)
+				processBundle('starter', settings.starter.partials, options),
+				processBundle('main', settings.main.partials, options),
+				processBundle('legacy', settings.legacy.partials, options)
 			);
 		};
 	};

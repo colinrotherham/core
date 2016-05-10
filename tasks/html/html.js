@@ -24,14 +24,14 @@
 			};
 
 			// Find layouts and partials
-			app.layouts(plugins.path.join(paths.html, 'layouts/*.hbs'));
-			app.partials(plugins.path.join(paths.html, 'partials/*.hbs'));
+			app.layouts(plugins.path.resolve(paths.src, 'templates/layouts/*.hbs'));
+			app.partials(plugins.path.resolve(paths.src, 'templates/partials/*.hbs'));
 
 			// Add classic helpers
 			app.helpers(require('handlebars-helpers')(), app.helpers);
 
 			// Build templates
-			return app.src(plugins.path.resolve(paths.html, '*.hbs'))
+			return app.src(plugins.path.resolve(paths.src, 'templates/*.hbs'))
 				.pipe(app.renderFile(options))
 				.pipe(plugins.rename({ extname: '.html' }))
 				.pipe(app.dest(paths.build))
