@@ -7,17 +7,17 @@
 		// Return bundles
 		return {
 
-			// Starter style bundle
+			// Starter style bundle (Critical CSS)
 			starter: [
 				plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss')
 			],
 
-			// Main style bundle
+			// Main style bundle (Modern browsers)
 			main: [
 				plugins.path.resolve(paths.src, 'public/assets/scss/main.scss')
 			],
 
-			// Legacy style bundle
+			// Legacy style bundle (IE8 and lower)
 			legacy: [
 				plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss')
 			]
