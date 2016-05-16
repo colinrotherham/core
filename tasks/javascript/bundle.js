@@ -9,8 +9,9 @@
 			buffer = require('vinyl-buffer'),
 			source = require('vinyl-source-stream');
 
-		// Get base JavaScript config
-		var config = plugins.getModule('javascript/config');
+		// Get base JavaScript config etc
+		var config = plugins.getModule('javascript/config'),
+			isDebug;
 
 		// Default Browserify options
 		var options = {
@@ -62,7 +63,7 @@
 
 				// Start sourcemaps, uglify and switch to build location
 				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.uglify())
+				.pipe(plugins.if(!isDebug, plugins.uglify()))
 				.pipe(plugins.concat((excludeModules? name + '-libs' :  name) + '.min.js'))
 
 				// Write to files
@@ -93,6 +94,7 @@
 
 		// Return module
 		return function() {
+			isDebug = !!(this.tasks.dev && this.tasks.dev.running);
 
 			// Loop bundles
 			var bundles = [];

@@ -10,8 +10,21 @@
 			eyeglass = require('eyeglass'),
 			mqpacker = require('css-mqpacker');
 
+		var isDebug;
+
 		// Prepare bundle
 		function processBundle(name, glob, options) {
+
+			// PostCSS tasks
+			var cssTasks = [
+				autoprefixer(options.autoprefixer)
+			];
+
+			// Skip tasks only in dev mode
+			if (!isDebug) {
+				cssTasks.push(csswring(options.csswring));
+				cssTasks.push(mqpacker(options.mqpacker));
+			}
 
 			return gulp.src(glob)
 
@@ -20,11 +33,7 @@
 				.pipe(plugins.sass(eyeglass(options.sass, plugins.sass)).on('error', plugins.sass.logError))
 
 				// Process PostCSS
-				.pipe(plugins.postcss([
-					autoprefixer(options.autoprefixer),
-					csswring(options.csswring),
-					mqpacker
-				]))
+				.pipe(plugins.postcss(cssTasks))
 
 				// Rename, write to files
 				.pipe(plugins.concat(name + '.min.css'))
@@ -38,6 +47,7 @@
 
 		// Return module
 		return function() {
+			isDebug = !!(this.tasks.dev && this.tasks.dev.running);
 
 			// Get base CSS config
 			var config = plugins.getModule('css/config');
