@@ -20,12 +20,12 @@
 
 			// Watch for CSS changes
 			plugins.watch(pathCSS, plugins.batch(function (events, done) {
-				return plugins.runSequence('css', done);
+				return plugins.runSequence('bundle-css', done);
 			}));
 
 			// Watch for JS changes
 			plugins.watch(pathJS, plugins.batch(function (events, done) {
-				return plugins.runSequence('javascript', done);
+				return plugins.runSequence('bundle-modules', done);
 			}));
 
 			// Watch for HTML changes
