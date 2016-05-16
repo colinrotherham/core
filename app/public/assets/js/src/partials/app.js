@@ -8,9 +8,8 @@
 		var self = this;
 
 		// Dependencies
-		var loadCSS = require('loadCSS'),
-			onloadCSS = require('onloadCSS'),
-			loadJS = require('loadJS');
+		var loadCSS = require('fg-loadcss'),
+			loadJS = require('fg-loadjs');
 
 /*
 		External methods

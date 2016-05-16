@@ -25,7 +25,7 @@
 
 			// Watch for JS changes
 			plugins.watch(pathJS, plugins.batch(function (events, done) {
-				return plugins.runSequence('lint-modules', 'bundle-modules', done);
+				return plugins.runSequence('lint-javascript', 'bundle-javascript', done);
 			}));
 
 			// Watch for HTML changes

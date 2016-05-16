@@ -7,20 +7,24 @@
 		// Return configuration
 		return {
 
-			// CommonJS modules
-			modules: [
-				plugins.path.resolve(paths.src, 'public/assets/js/src/partials/*.js'),
-				plugins.path.resolve(paths.src, 'public/assets/js/src/main.js')
-			],
+			// Main JS bundle (Modern browsers)
+			main: {
 
-			// External libraries etc
-			dependencies: {
-				jQuery: plugins.path.resolve('node_modules/jquery/dist/jquery'),
-				loadJS: plugins.path.resolve('node_modules/fg-loadjs/loadJS'),
-				loadCSS: plugins.path.resolve('node_modules/fg-loadcss/src/loadCSS'),
-				onloadCSS: plugins.path.resolve('node_modules/fg-loadcss/src/onloadCSS'),
-				picturefill: plugins.path.resolve('node_modules/picturefill/dist/picturefill'),
-				webfontloader: plugins.path.resolve('node_modules/components-webfontloader/webfont')
+				// External dependencies
+				dependencies: [
+					'jQuery',
+					'fg-loadjs',
+					'fg-loadcss',
+					'picturefill',
+					'components-webfontloader'
+				]
 			},
+
+			// Legacy JS bundle (IE8 and lower only)
+			legacy: {
+
+				// External dependencies
+				dependencies: []
+			}
 		};
 	};

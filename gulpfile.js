@@ -27,9 +27,8 @@
 	gulp.task('clean', plugins.getModule('clean'));
 	gulp.task('copy', plugins.getModule('copy'));
 	gulp.task('bundle-css', plugins.getModule('css/bundle'));
-	gulp.task('lint-modules', plugins.getModule('javascript/lint'));
-	gulp.task('bundle-libs', plugins.getModule('javascript/bundle-libs'));
-	gulp.task('bundle-modules', plugins.getModule('javascript/bundle-modules'));
+	gulp.task('lint-javascript', plugins.getModule('javascript/lint'));
+	gulp.task('bundle-javascript', plugins.getModule('javascript/bundle'));
 	gulp.task('html', plugins.getModule('html/html'));
 	gulp.task('image-fallbacks', plugins.getModule('images/fallbacks'));
 	gulp.task('image-optimise', plugins.getModule('images/optimise'));
@@ -43,7 +42,7 @@
 
 	// Shared build tasks
 	gulp.task('build', ['clean'], function(callback) {
-		plugins.runSequence('lint-modules', ['bundle-css', 'bundle-libs', 'bundle-modules'], ['image-fallbacks', 'html'], callback);
+		plugins.runSequence('lint-javascript', ['bundle-css', 'bundle-javascript'], ['image-fallbacks', 'html'], callback);
 	});
 
 	// Default tasks
