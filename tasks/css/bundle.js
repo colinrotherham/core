@@ -69,11 +69,13 @@
 				}
 			};
 
-			// Process each bundle
-			return plugins.eventStream.merge(
-				processBundle('starter', settings.starter, options),
-				processBundle('main', settings.main, options),
-				processBundle('legacy', settings.legacy, options)
-			);
+			// Process bundles
+			var bundles = [];
+			for (var bundle in settings) {
+				bundles.push(processBundle(bundle, settings[bundle], options));
+			}
+
+			// Return merged
+			return plugins.eventStream.merge(bundles);
 		};
 	};
