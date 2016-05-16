@@ -11,6 +11,7 @@
 				browser: 'google chrome',
 				notify: false,
 				open: false,
+				reloadDelay: 300,
 				server: { baseDir: paths.build }
 			};
 
