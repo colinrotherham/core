@@ -40,7 +40,7 @@
 		return function() {
 
 			// Get base CSS config
-			var settings = plugins.getModule('css/config');
+			var config = plugins.getModule('css/config');
 
 			// Module options
 			var options = {
@@ -71,8 +71,8 @@
 
 			// Process bundles
 			var bundles = [];
-			for (var bundle in settings) {
-				bundles.push(processBundle(bundle, settings[bundle], options));
+			for (var bundle in config) {
+				bundles.push(processBundle(bundle, config[bundle], options));
 			}
 
 			// Return merged
