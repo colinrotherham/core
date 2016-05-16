@@ -13,7 +13,7 @@
 				pathFonts = plugins.path.resolve(paths.src, '**/fonts/**'),
 				pathImages = plugins.path.resolve(paths.src, '**/*.{png,jpg,gif}'),
 				pathSVG = plugins.path.resolve(paths.src, '**/*.{svg}'),
-				pathHTML = plugins.path.join(paths.src, '**/*.hbs');
+				pathHTML = plugins.path.resolve(paths.src, '**/*.hbs');
 
 			// Critical build paths (e.g. rebuild HTML when critical styles change)
 			var pathCriticalCSS = plugins.path.resolve(paths.build, 'assets/css/starter.min.css');
@@ -25,7 +25,7 @@
 
 			// Watch for JS changes
 			plugins.watch(pathJS, plugins.batch(function (events, done) {
-				return plugins.runSequence('bundle-modules', done);
+				return plugins.runSequence('lint-modules', 'bundle-modules', done);
 			}));
 
 			// Watch for HTML changes
