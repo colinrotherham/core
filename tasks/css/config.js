@@ -8,30 +8,18 @@
 		return {
 
 			// Starter style bundle
-			starter: {
-
-				// Sass partials
-				partials: [
-					plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss'),
-				]
-			},
+			starter: [
+				plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss')
+			],
 
 			// Main style bundle
-			main: {
-
-				// Sass partials
-				partials: [
-					plugins.path.resolve(paths.src, 'public/assets/scss/main.scss'),
-				]
-			},
+			main: [
+				plugins.path.resolve(paths.src, 'public/assets/scss/main.scss')
+			],
 
 			// Legacy style bundle
-			legacy: {
-
-				// Sass partials
-				partials: [
-					plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss'),
-				]
-			}
+			legacy: [
+				plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss')
+			]
 		};
 	};
