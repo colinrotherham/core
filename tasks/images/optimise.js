@@ -17,6 +17,6 @@
 
 			return gulp.src(plugins.path.resolve(paths.build, '**/*.{png,jpg,gif}'))
 				.pipe(plugins.imagemin(options))
-				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/img')));
+				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')));
 		};
 	};

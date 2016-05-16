@@ -55,7 +55,7 @@
 
 				// Write to files
 				.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/js/src/partials' }))
-				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/js')))
+				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/js')))
 
 				// Filter out sourcemaps, reload in browser
 				.pipe(plugins.filter('**/*.js'))

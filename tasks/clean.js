@@ -6,6 +6,6 @@
 
 		// Return module
 		return function(callback) {
-			return require('del')(plugins.path.join(paths.build, '*'), callback);
+			return require('del')(plugins.path.resolve(paths.build, '*'), callback);
 		};
 	};

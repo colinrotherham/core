@@ -9,8 +9,8 @@
 
 			// CommonJS modules
 			modules: [
-				plugins.path.join(paths.src, 'public/assets/js/src/partials/*.js'),
-				plugins.path.join(paths.src, 'public/assets/js/src/main.js')
+				plugins.path.resolve(paths.src, 'public/assets/js/src/partials/*.js'),
+				plugins.path.resolve(paths.src, 'public/assets/js/src/main.js')
 			],
 
 			// External libraries etc

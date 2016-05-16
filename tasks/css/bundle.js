@@ -29,7 +29,7 @@
 				// Rename, write to files
 				.pipe(plugins.concat(name + '.min.css'))
 				.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/scss/' }))
-				.pipe(gulp.dest(plugins.path.join(paths.build, 'assets/css')))
+				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/css')))
 
 				// Reload in browser
 				.pipe(plugins.filter('**/*.css'))
