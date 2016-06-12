@@ -5,7 +5,7 @@ Core
 
 Install Node.JS
 
-As root/adminstrator:
+As root/administrator:
 
 ```
 npm install -g gulp
