@@ -12,7 +12,7 @@
 
 				// External dependencies
 				dependencies: [
-					'jQuery',
+					'jquery',
 					'fg-loadjs',
 					'fg-loadcss',
 					'picturefill',
