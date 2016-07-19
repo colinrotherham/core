@@ -6,9 +6,9 @@
 		'use strict';
 
 		// Dependencies
-		var $ = require('jQuery');
+		var $ = require('jquery');
 
 		// Test jQuery dependency
 		if ($ && window.console)
-			console.log('Hello, jQuery is ready');
+			console.log('Hello, jquery is ready');
 	};
