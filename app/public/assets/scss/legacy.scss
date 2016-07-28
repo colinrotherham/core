@@ -2,9 +2,9 @@
 	Legacy IE browser styles
 	----------------------------------- */
 
-	// Modules via npm + eyeglass
-	@import 'normalize/import-now';
-	@import 'breakpoint';
+	// Modules via npm
+	@import 'normalize-scss/sass/normalize/import-now';
+	@import 'breakpoint-sass/stylesheets/breakpoint';
 
 	// Disable media queries
 	@include breakpoint-set('no queries', true);

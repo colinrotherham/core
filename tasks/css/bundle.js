@@ -7,7 +7,6 @@
 		// Child modules
 		var autoprefixer = require('autoprefixer'),
 			csswring = require('csswring'),
-			eyeglass = require('eyeglass'),
 			mqpacker = require('css-mqpacker');
 
 		var isDebug;
@@ -30,7 +29,7 @@
 
 				// Process Sass
 				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.sass(eyeglass(options.sass, plugins.sass)).on('error', plugins.sass.logError))
+				.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
 
 				// Process PostCSS
 				.pipe(plugins.postcss(cssTasks))
@@ -72,9 +71,9 @@
 
 				sass: {
 					errLogToConsole: true,
-					eyeglass: {
-						enableImportOnce: true
-					},
+					includePaths: [
+						'node_modules'
+					],
 					outputStyle: 'compressed'
 				}
 			};
