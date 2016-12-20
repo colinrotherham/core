@@ -9,7 +9,7 @@
 			app = assemble();
 
 		// Add helpers
-		app.helper('outputFileContent', plugins.getModule('html/helpers/outputFileContent'));
+		app.helper('outputFileContent', plugins.getModule('html/helpers/output-file-content'));
 
 		// Return module
 		return function() {
