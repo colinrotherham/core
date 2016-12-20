@@ -22,8 +22,7 @@
 	}
 
 	// Photoshop helper mixin
-	@mixin font-attributes($size, $line-height, $letter-spacing: 0, $context: $font-size-base)
-	{
+	@mixin font-attributes($size, $line-height, $letter-spacing: 0, $context: $font-size-base) {
 		@include font-size($size, $line-height, $context);
 		@include line-height($size, $line-height);
 		@include letter-spacing($size, $letter-spacing);
