@@ -1,0 +1,23 @@
+{
+  "extends": "semistandard",
+  "rules": {
+
+    # Tab indenting
+    "indent": [
+      "error",
+      "tab"
+    ],
+
+    # Allow tabs
+    "no-tabs": 0,
+
+    # Allow empty opening line in blocks
+    "padded-blocks": 0,
+
+    # Allow 'else' on own line
+    "brace-style": [
+      "error",
+      "stroustrup"
+    ]
+  }
+}

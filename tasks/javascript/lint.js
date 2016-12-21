@@ -11,6 +11,7 @@ module.exports = function(paths, gulp, plugins) {
 
 		// Load all JavaScript files
 		return gulp.src(plugins.path.resolve(paths.src, '**/*.js'))
-			.pipe(plugins.jscs());
+			.pipe(plugins.eslint())
+			.pipe(plugins.eslint.format());
 	};
 };
