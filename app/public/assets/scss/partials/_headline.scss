@@ -3,9 +3,10 @@
  */
 
 .headline {
-	margin-bottom: 0.25em;
+	margin: 0 0 0.25em;
 
 	&--section {
+		margin-top: 1em;
 		@include font-attributes(40px, 44px);
 	}
 
