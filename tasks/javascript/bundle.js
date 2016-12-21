@@ -16,13 +16,21 @@ module.exports = function (paths, gulp, plugins) {
 
 	var isDebug = false;
 
-	// Default Browserify options
 	var options = {
-		debug: true,
-		external: [],
-		paths: [
-			plugins.path.resolve(paths.src, 'public/assets/js/src/')
-		]
+
+		browserify: {
+			debug: true,
+			external: [],
+			paths: [
+				plugins.path.resolve(paths.src, 'public/assets/js/src/')
+			]
+		},
+
+		uglify: {
+			compress: { screw_ie8: false },
+			mangle: { screw_ie8: false },
+			output: { screw_ie8: false }
+		}
 	};
 
 	// Create bundle
@@ -37,11 +45,11 @@ module.exports = function (paths, gulp, plugins) {
 
 		// Optional module entry point
 		if (!excludeModules) {
-			options.entries = entry;
+			options.browserify.entries = entry;
 		}
 
 		// Configure
-		var b = browserify(options);
+		var b = browserify(options.browserify);
 
 		if (dependencies.length) {
 
@@ -72,7 +80,7 @@ module.exports = function (paths, gulp, plugins) {
 			}))
 
 			// Uglify and switch to build location
-			.pipe(plugins.if(!isDebug, plugins.uglify()))
+			.pipe(plugins.if(!isDebug, plugins.uglify(options.uglify)))
 			.pipe(plugins.concat((excludeModules ? name + '-libs' : name) + '.min.js'))
 
 			// Write to source maps
