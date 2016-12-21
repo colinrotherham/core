@@ -11,7 +11,7 @@ module.exports = function App () {
 	self.init = function () {
 
 		// Other modules
-		require('partials/example');
+		require('./example');
 	};
 
 	// Return instance

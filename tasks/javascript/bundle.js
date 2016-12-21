@@ -22,7 +22,7 @@ module.exports = function (paths, gulp, plugins) {
 			debug: true,
 			external: [],
 			paths: [
-				plugins.path.resolve(paths.src, 'public/assets/js/src/')
+				plugins.path.resolve(paths.src, 'public/assets/js/')
 			]
 		},
 
@@ -87,7 +87,7 @@ module.exports = function (paths, gulp, plugins) {
 			.pipe(plugins.sourcemaps.write('.', {
 				includeContent: false,
 				mapSources: function(sourcePath) {
-					sourcePath = sourcePath.replace('app/public/assets/js/src', '');
+					sourcePath = sourcePath.replace('app/public/assets/js', '');
 					sourcePath = sourcePath.replace('/app/public', '');
 					return sourcePath;
 				},
@@ -128,7 +128,7 @@ module.exports = function (paths, gulp, plugins) {
 		// Loop bundles
 		var bundles = [];
 		for (var bundle in config) {
-			bundles.push(processBundle(bundle, plugins.path.resolve(paths.src, 'public/assets/js/src/', bundle + '.js')));
+			bundles.push(processBundle(bundle, plugins.path.resolve(paths.src, 'public/assets/js/', bundle + '.js')));
 		}
 
 		// Return merged

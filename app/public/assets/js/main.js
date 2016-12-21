@@ -4,5 +4,5 @@
 
 'use strict';
 
-var app = new (require('partials/app'))();
+var app = new (require('modules/app'))();
 app.init();
