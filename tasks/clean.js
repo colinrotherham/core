@@ -1,11 +1,13 @@
-/*
-	Clean
-	----------------------------------- */
+/**
+ * Clean
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return module
-		return function(callback) {
-			return require('del')(plugins.path.resolve(paths.build, '*'), callback);
-		};
+module.exports = function (paths, gulp, plugins) {
+
+	// Return module
+	return function (callback) {
+		return require('del')(plugins.path.resolve(paths.build, '*'), callback);
 	};
+};

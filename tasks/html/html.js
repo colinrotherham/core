@@ -1,40 +1,42 @@
-/*
-	HTML
-	----------------------------------- */
+/**
+ * HTML
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Child modules
-		var assemble = require('assemble'),
-			app = assemble();
+module.exports = function (paths, gulp, plugins) {
 
-		// Add helpers
-		app.helper('outputFileContent', plugins.getModule('html/helpers/output-file-content'));
+	// Child modules
+	var assemble = require('assemble');
+	var app = assemble();
 
-		// Return module
-		return function() {
+	// Add helpers
+	app.helper('outputFileContent', plugins.getModule('html/helpers/output-file-content'));
 
-			// Default page options
-			var options = {
-				name: 'default',
-				locale: 'en-GB',
+	// Return module
+	return function () {
 
-				// Appended to includes to bust cache
-				timestamp: Date.now()
-			};
+		// Default page options
+		var options = {
+			name: 'default',
+			locale: 'en-GB',
 
-			// Find layouts and partials
-			app.layouts(plugins.path.resolve(paths.src, 'templates/layouts/*.hbs'));
-			app.partials(plugins.path.resolve(paths.src, 'templates/partials/*.hbs'));
-
-			// Add classic helpers
-			app.helpers(require('handlebars-helpers')(), app.helpers);
-
-			// Build templates
-			return app.src(plugins.path.resolve(paths.src, 'templates/*.hbs'))
-				.pipe(app.renderFile(options))
-				.pipe(plugins.rename({ extname: '.html' }))
-				.pipe(app.dest(paths.build))
-				.pipe(plugins.browserSync.reload({ stream: true }));
+			// Appended to includes to bust cache
+			timestamp: Date.now()
 		};
+
+		// Find layouts and partials
+		app.layouts(plugins.path.resolve(paths.src, 'templates/layouts/*.hbs'));
+		app.partials(plugins.path.resolve(paths.src, 'templates/partials/*.hbs'));
+
+		// Add classic helpers
+		app.helpers(require('handlebars-helpers')(), app.helpers);
+
+		// Build templates
+		return app.src(plugins.path.resolve(paths.src, 'templates/*.hbs'))
+			.pipe(app.renderFile(options))
+			.pipe(plugins.rename({ extname: '.html' }))
+			.pipe(app.dest(paths.build))
+			.pipe(plugins.browserSync.reload({ stream: true }));
 	};
+};

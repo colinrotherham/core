@@ -1,20 +1,22 @@
-/*
-	BrowserSync
-	----------------------------------- */
+/**
+ * BrowserSync
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return module
-		return function() {
+module.exports = function (paths, gulp, plugins) {
 
-			var options = {
-				browser: 'google chrome',
-				notify: false,
-				open: false,
-				reloadDelay: 300,
-				server: { baseDir: paths.build }
-			};
+	// Return module
+	return function () {
 
-			return plugins.browserSync(options);
+		var options = {
+			browser: 'google chrome',
+			notify: false,
+			open: false,
+			reloadDelay: 300,
+			server: { baseDir: paths.build }
 		};
+
+		return plugins.browserSync(options);
 	};
+};

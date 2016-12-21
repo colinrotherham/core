@@ -1,19 +1,19 @@
-/*
-	Legacy IE browser styles
-	----------------------------------- */
+/**
+ * Legacy IE browser styles
+ */
 
-	// Modules via npm
-	@import 'normalize-scss/sass/normalize/import-now';
-	@import 'breakpoint-sass/stylesheets/breakpoint';
+// Modules via npm
+@import 'normalize-scss/sass/normalize/import-now';
+@import 'breakpoint-sass/stylesheets/breakpoint';
 
-	// Disable media queries
-	@include breakpoint-set('no queries', true);
+// Disable media queries
+@include breakpoint-set('no queries', true);
 
-	// Re-import main stylesheets
-	@import 'starter';
-	@import 'main';
+// Re-import main stylesheets
+@import 'starter';
+@import 'main';
 
-	// Hard code widths
-	body {
-		min-width: 1024px;
-	}
+// Hard code widths
+body {
+	min-width: 1024px;
+}

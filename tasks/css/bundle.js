@@ -1,90 +1,92 @@
-/*
-	CSS
-	----------------------------------- */
+/**
+ * CSS
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Child modules
-		var autoprefixer = require('autoprefixer'),
-			csswring = require('csswring'),
-			mqpacker = require('css-mqpacker');
+module.exports = function (paths, gulp, plugins) {
 
-		var isDebug;
+	// Child modules
+	var autoprefixer = require('autoprefixer');
+	var csswring = require('csswring');
+	var mqpacker = require('css-mqpacker');
 
-		// Prepare bundle
-		function processBundle(name, glob, options) {
+	var isDebug = false;
 
-			// PostCSS tasks
-			var cssTasks = [
-				autoprefixer(options.autoprefixer)
-			];
+	// Prepare bundle
+	function processBundle (name, glob, options) {
 
-			// Skip tasks only in dev mode
-			if (!isDebug) {
-				cssTasks.push(csswring(options.csswring));
-				cssTasks.push(mqpacker(options.mqpacker));
-			}
+		// PostCSS tasks
+		var cssTasks = [
+			autoprefixer(options.autoprefixer)
+		];
 
-			return gulp.src(glob)
-
-				// Process Sass
-				.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
-
-				// Process PostCSS
-				.pipe(plugins.postcss(cssTasks))
-
-				// Rename, write to files
-				.pipe(plugins.concat(name + '.min.css'))
-				.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/scss/' }))
-				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/css')))
-
-				// Reload in browser
-				.pipe(plugins.filter('**/*.css'))
-				.pipe(plugins.browserSync.reload({ stream: true }));
+		// Skip tasks only in dev mode
+		if (!isDebug) {
+			cssTasks.push(csswring(options.csswring));
+			cssTasks.push(mqpacker(options.mqpacker));
 		}
 
-		// Return module
-		return function() {
-			isDebug = !!(this.tasks.dev && this.tasks.dev.running);
+		return gulp.src(glob)
 
-			// Get base CSS config
-			var config = plugins.getModule('css/config');
+			// Process Sass
+			.pipe(plugins.sourcemaps.init())
+			.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
 
-			// Module options
-			var options = {
+			// Process PostCSS
+			.pipe(plugins.postcss(cssTasks))
 
-				autoprefixer: {
-					browsers: ['> 2%', 'IE >= 8', 'iOS >= 7'],
-					cascade: false,
-					map: true,
-					remove: true
-				},
+			// Rename, write to files
+			.pipe(plugins.concat(name + '.min.css'))
+			.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/scss/' }))
+			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/css')))
 
-				csswring: {
-					removeAllComments: true
-				},
+			// Reload in browser
+			.pipe(plugins.filter('**/*.css'))
+			.pipe(plugins.browserSync.reload({ stream: true }));
+	}
 
-				mqpacker: {
-					sort: true
-				},
+	// Return module
+	return function () {
+		isDebug = !!(this.tasks.dev && this.tasks.dev.running);
 
-				sass: {
-					errLogToConsole: true,
-					includePaths: [
-						'node_modules'
-					],
-					outputStyle: 'compressed'
-				}
-			};
+		// Get base CSS config
+		var config = plugins.getModule('css/config');
 
-			// Process bundles
-			var bundles = [];
-			for (var bundle in config) {
-				bundles.push(processBundle(bundle, config[bundle], options));
+		// Module options
+		var options = {
+
+			autoprefixer: {
+				browsers: ['> 2%', 'IE >= 8', 'iOS >= 7'],
+				cascade: false,
+				map: true,
+				remove: true
+			},
+
+			csswring: {
+				removeAllComments: true
+			},
+
+			mqpacker: {
+				sort: true
+			},
+
+			sass: {
+				errLogToConsole: true,
+				includePaths: [
+					'node_modules'
+				],
+				outputStyle: 'compressed'
 			}
-
-			// Return merged
-			return plugins.eventStream.merge(bundles);
 		};
+
+		// Process bundles
+		var bundles = [];
+		for (var bundle in config) {
+			bundles.push(processBundle(bundle, config[bundle], options));
+		}
+
+		// Return merged
+		return plugins.eventStream.merge(bundles);
 	};
+};

@@ -1,25 +1,27 @@
-/*
-	CSS Config
-	----------------------------------- */
+/**
+ * CSS config
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return bundles
-		return {
+module.exports = function (paths, gulp, plugins) {
 
-			// Starter style bundle (Critical CSS)
-			starter: [
-				plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss')
-			],
+	// Return bundles
+	return {
 
-			// Main style bundle (Modern browsers)
-			main: [
-				plugins.path.resolve(paths.src, 'public/assets/scss/main.scss')
-			],
+		// Starter style bundle (Critical CSS)
+		starter: [
+			plugins.path.resolve(paths.src, 'public/assets/scss/starter.scss')
+		],
 
-			// Legacy style bundle (IE8 and lower)
-			legacy: [
-				plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss')
-			]
-		};
+		// Main style bundle (Modern browsers)
+		main: [
+			plugins.path.resolve(paths.src, 'public/assets/scss/main.scss')
+		],
+
+		// Legacy style bundle (IE8 and lower)
+		legacy: [
+			plugins.path.resolve(paths.src, 'public/assets/scss/legacy.scss')
+		]
 	};
+};

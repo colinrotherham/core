@@ -1,14 +1,13 @@
-/*
-	Example module
-	------------------------------- */
+/**
+ * Example module
+ */
 
-	module.exports = function() {
-		'use strict';
+'use strict';
 
-		// Dependencies
-		var $ = require('jquery');
+// Dependencies
+var $ = require('jquery');
 
-		// Test jQuery dependency
-		if ($ && window.console)
-			console.log('Hello, jquery is ready');
-	};
+// Test jQuery dependency
+if ($ && window.console) {
+	console.log('Hello, jquery is ready');
+}

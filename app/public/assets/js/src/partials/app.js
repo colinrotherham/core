@@ -1,28 +1,23 @@
-/*
-	App launcher
-	------------------------------- */
+/**
+ * App launcher
+ */
 
-	module.exports = function App() {
-		'use strict';
+'use strict';
 
-		var self = this;
+module.exports = function App () {
+	var self = this;
 
-		// Dependencies
-		var loadCSS = require('fg-loadcss'),
-			loadJS = require('fg-loadjs');
+	// Dependencies
+	require('fg-loadcss');
+	require('fg-loadjs');
 
-/*
-		External methods
-		----------------------------------- */
+	// Internal methods
+	self.init = function () {
 
-		self.init = function() {
-
-			// Other modules
-			new (require('partials/example'))();
-		};
-
-		self.init();
-
-		// Return instance
-		return self;
+		// Other modules
+		require('partials/example');
 	};
+
+	// Return instance
+	return self;
+};

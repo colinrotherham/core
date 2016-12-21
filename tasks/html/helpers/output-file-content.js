@@ -1,19 +1,23 @@
-/*
-	File output (i.e. inlining content)
-	----------------------------------- */
+/**
+ * File output (i.e. inlining content)
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return helper
-		return function(path) {
-			var contents = '';
+module.exports = function (paths, gulp, plugins) {
 
-			try {
-				contents = require('fs').readFileSync(path, 'utf8');
-			}
+	// Return helper
+	return function (path) {
+		var contents = '';
 
-			catch(err) {}
-
-			return contents;
+		try {
+			contents = require('fs').readFileSync(path, 'utf8');
 		}
+
+		catch (err) {
+			// No content
+		}
+
+		return contents;
 	};
+};

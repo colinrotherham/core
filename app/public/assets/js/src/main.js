@@ -1,5 +1,8 @@
-/*
-	Start app
-	------------------------------- */
+/**
+ * Start app
+ */
 
-	new (require('partials/app'))();
+'use strict';
+
+var app = new (require('partials/app'))();
+app.init();

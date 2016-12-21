@@ -1,33 +1,33 @@
-/*
-	Core styles
-	----------------------------------- */
+/**
+ * Core styles
+ */
 
-	// Clearfix
-	.group:after {
-		content: '';
-		display: table;
-		clear: both;
-	}
+// Clearfix
+.group:after {
+	content: '';
+	display: table;
+	clear: both;
+}
 
-	html, body, button, input, select, textarea {
-		-moz-osx-font-smoothing: grayscale;
-		-webkit-font-smoothing: antialiased;
-	}
+html, body, button, input, select, textarea {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
 
-	html {
-		background: white;
-		color: black;
-		box-sizing: border-box;
-	}
+html {
+	background: white;
+	color: black;
+	box-sizing: border-box;
+}
 
-	body {
-		text-size-adjust: 100%;
-	}
+body {
+	text-size-adjust: 100%;
+}
 
-	blockquote {
-		margin: 0;
-	}
+blockquote {
+	margin: 0;
+}
 
-	*, *:before, *:after {
-		box-sizing: inherit;
-	}
+*, *:before, *:after {
+	box-sizing: inherit;
+}

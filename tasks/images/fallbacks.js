@@ -1,15 +1,17 @@
-/*
-	Generate PNG fallbacks for SVGs
-	----------------------------------- */
+/**
+ * Generate PNG fallbacks for SVGs
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return module
-		return function() {
+module.exports = function (paths, gulp, plugins) {
 
-			return gulp.src(plugins.path.resolve(paths.src, '**/*.{svg}'))
-				.pipe(plugins.svg2png())
-				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')))
-				.pipe(plugins.browserSync.reload({ stream: true }));
-		};
+	// Return module
+	return function () {
+
+		return gulp.src(plugins.path.resolve(paths.src, '**/*.{svg}'))
+			.pipe(plugins.svg2png())
+			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')))
+			.pipe(plugins.browserSync.reload({ stream: true }));
 	};
+};

@@ -1,5 +1,7 @@
-/*
-	Start legacy modules
-	------------------------------- */
+/**
+ * Start legacy modules
+ */
 
-	require('html5shiv');
+'use strict';
+
+require('html5shiv');

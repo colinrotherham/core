@@ -1,30 +1,32 @@
-/*
-	JavaScript Config
-	----------------------------------- */
+/**
+ * JavaScript config
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return configuration
-		return {
+module.exports = function (paths, gulp, plugins) {
 
-			// Main JS bundle (Modern browsers)
-			main: {
+	// Return configuration
+	return {
 
-				// External dependencies
-				dependencies: [
-					'jquery',
-					'fg-loadjs',
-					'fg-loadcss',
-					'picturefill',
-					'components-webfontloader'
-				]
-			},
+		// Main JS bundle (Modern browsers)
+		main: {
 
-			// Legacy JS bundle (IE8 and lower only)
-			legacy: {
+			// External dependencies
+			dependencies: [
+				'jquery',
+				'fg-loadjs',
+				'fg-loadcss',
+				'picturefill',
+				'components-webfontloader'
+			]
+		},
 
-				// External dependencies
-				dependencies: []
-			}
-		};
+		// Legacy JS bundle (IE8 and lower only)
+		legacy: {
+
+			// External dependencies
+			dependencies: []
+		}
 	};
+};

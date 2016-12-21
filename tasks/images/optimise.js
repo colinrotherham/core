@@ -1,22 +1,24 @@
-/*
-	Optimise images
-	----------------------------------- */
+/**
+ * Optimise images
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Child modules
-		var pngquant = require('imagemin-pngquant');
+module.exports = function (paths, gulp, plugins) {
 
-		// Return module
-		return function() {
+	// Child modules
+	var pngquant = require('imagemin-pngquant');
 
-			var options = {
-				progressive: true,
-				use: [pngquant()]
-			};
+	// Return module
+	return function () {
 
-			return gulp.src(plugins.path.resolve(paths.build, '**/*.{png,jpg,gif}'))
-				.pipe(plugins.imagemin(options))
-				.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')));
+		var options = {
+			progressive: true,
+			use: [pngquant()]
 		};
+
+		return gulp.src(plugins.path.resolve(paths.build, '**/*.{png,jpg,gif}'))
+			.pipe(plugins.imagemin(options))
+			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')));
 	};
+};

@@ -1,14 +1,16 @@
-/*
-	Lint JavaScript for errors etc
-	----------------------------------- */
+/**
+ * Lint JS for errors etc
+ */
 
-	module.exports = function(paths, gulp, plugins) {
+'use strict';
 
-		// Return module
-		return function(callback) {
+module.exports = function(paths, gulp, plugins) {
 
-			// Load all JavaScript files
-			return gulp.src(plugins.path.resolve(paths.src, '**/*.js'))
-				.pipe(plugins.jscs())
-		};
+	// Return module
+	return function (callback) {
+
+		// Load all JavaScript files
+		return gulp.src(plugins.path.resolve(paths.src, '**/*.js'))
+			.pipe(plugins.jscs());
 	};
+};
