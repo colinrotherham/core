@@ -10,21 +10,25 @@
 		<!-- Handheld support -->
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<!-- CSS includes -->
+		<!-- Critical CSS -->
 		<!--[if (gte IE 9)|!(IE)]><!-->
 		<style>{{outputFileContent "./dist/assets/css/starter.min.css"}}</style>
-		<link rel="stylesheet" href="/assets/css/main.min.css?v={{timestamp}}">
 		<!--<![endif]-->
 		<!--[if lt IE 9]>
 		<link rel="stylesheet" href="/assets/css/legacy.min.css?v={{timestamp}}">
 		<![endif]-->
 
-		<!-- Toggle advanced UI -->
-		<script>document.documentElement.className = 'advanced';</script>
-
 		<!--[if lt IE 9]>
 		<script src="/assets/js/legacy.min.js"></script>
 		<![endif]-->
+
+		<!-- Critical JS -->
+		<script>document.documentElement.className = 'advanced';
+		{{outputFileContent "./dist/assets/js/starter.min.js"}}</script>
+
+		<!-- Lazy-load CSS -->
+		<script>loadCSS('/assets/css/main.min.css?v={{timestamp}}');</script>
+		<noscript><link rel="stylesheet" href="/assets/css/main.min.css?v={{timestamp}}"></noscript>
 	</head>
 	<body class="page page--{{name}}">
 		{% body %}

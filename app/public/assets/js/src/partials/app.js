@@ -7,10 +7,6 @@
 module.exports = function App () {
 	var self = this;
 
-	// Dependencies
-	require('fg-loadcss');
-	require('fg-loadjs');
-
 	// Internal methods
 	self.init = function () {
 

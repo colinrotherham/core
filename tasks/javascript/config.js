@@ -9,14 +9,19 @@ module.exports = function (paths, gulp, plugins) {
 	// Return configuration
 	return {
 
+		// Starter JS bundle (assists Critical CSS)
+		starter: {
+
+			// External dependencies
+			dependencies: []
+		},
+
 		// Main JS bundle (Modern browsers)
 		main: {
 
 			// External dependencies
 			dependencies: [
 				'jquery',
-				'fg-loadjs',
-				'fg-loadcss',
 				'picturefill',
 				'components-webfontloader'
 			]
