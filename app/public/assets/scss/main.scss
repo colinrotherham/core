@@ -2,11 +2,8 @@
  * Main browser styles
  */
 
-// Modules via npm
-@import 'normalize-scss/sass/normalize/import-now';
+// Modules, mixins etc
 @import 'breakpoint-sass/stylesheets/breakpoint';
-
-// Mixins etc
 @import 'modules/fonts';
 
 // Base partials

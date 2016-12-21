@@ -65,13 +65,28 @@ module.exports = function (paths, gulp, plugins) {
 			.pipe(source(entry))
 			.pipe(buffer())
 
-			// Start sourcemaps, uglify and switch to build location
-			.pipe(plugins.sourcemaps.init())
+			// Start sourcemaps
+			.pipe(plugins.sourcemaps.init({
+				largeFile: true,
+				loadMaps: true,
+				base: 'app/public'
+			}))
+
+			// Uglify and switch to build location
 			.pipe(plugins.if(!isDebug, plugins.uglify()))
 			.pipe(plugins.concat((excludeModules ? name + '-libs' : name) + '.min.js'))
 
+			// Write to source maps
+			.pipe(plugins.sourcemaps.write('.', {
+				includeContent: false,
+				mapSources: function(sourcePath) {
+					sourcePath = sourcePath.replace('app/public/assets/js/src', '');
+					sourcePath = sourcePath.replace('/app/public', '');
+					return sourcePath;
+				}
+			}))
+
 			// Write to files
-			.pipe(plugins.sourcemaps.write('.'))
 			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/js')))
 
 			// Filter out sourcemaps, reload in browser

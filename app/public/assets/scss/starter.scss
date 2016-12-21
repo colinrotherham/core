@@ -2,11 +2,9 @@
  * Starter browser styles
  */
 
-// Modules via npm
+// Modules, mixins etc
 @import 'normalize-scss/sass/normalize/import-now';
 @import 'breakpoint-sass/stylesheets/breakpoint';
-
-// Mixins etc
 @import 'modules/fonts';
 
 // Base partials

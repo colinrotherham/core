@@ -29,16 +29,28 @@ module.exports = function (paths, gulp, plugins) {
 
 		return gulp.src(glob)
 
+			// Start sourcemaps
+			.pipe(plugins.sourcemaps.init({
+				largeFile: true,
+				loadMaps: true,
+				base: 'app/public'
+			}))
+
 			// Process Sass
-			.pipe(plugins.sourcemaps.init())
 			.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
 
-			// Process PostCSS
+			// Process PostCSS, rename
 			.pipe(plugins.postcss(cssTasks))
-
-			// Rename, write to files
 			.pipe(plugins.concat(name + '.min.css'))
-			.pipe(plugins.sourcemaps.write('.', { sourceRoot: '/assets/scss/' }))
+
+			// Write to source maps
+			.pipe(plugins.sourcemaps.write('.', {
+				includeContent: false,
+				sourceMappingURLPrefix: '/assets/css',
+				sourceRoot: '/assets/scss/'
+			}))
+
+			// Write to files
 			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/css')))
 
 			// Reload in browser
