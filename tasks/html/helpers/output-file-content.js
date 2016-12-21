@@ -18,6 +18,6 @@ module.exports = function (paths, gulp, plugins) {
 			// No content
 		}
 
-		return contents;
+		return contents.trim();
 	};
 };

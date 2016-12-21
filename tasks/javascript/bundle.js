@@ -67,7 +67,6 @@ module.exports = function (paths, gulp, plugins) {
 
 			// Start sourcemaps
 			.pipe(plugins.sourcemaps.init({
-				largeFile: true,
 				loadMaps: true,
 				base: 'app/public'
 			}))
@@ -83,7 +82,8 @@ module.exports = function (paths, gulp, plugins) {
 					sourcePath = sourcePath.replace('app/public/assets/js/src', '');
 					sourcePath = sourcePath.replace('/app/public', '');
 					return sourcePath;
-				}
+				},
+				sourceMappingURLPrefix: '/assets/js',
 			}))
 
 			// Write to files

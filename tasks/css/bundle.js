@@ -31,7 +31,6 @@ module.exports = function (paths, gulp, plugins) {
 
 			// Start sourcemaps
 			.pipe(plugins.sourcemaps.init({
-				largeFile: true,
 				loadMaps: true,
 				base: 'app/public'
 			}))
