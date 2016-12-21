@@ -1,0 +1,8 @@
+/**
+ * Container
+ */
+
+.container {
+	background: map-get($colours, 'content');
+	color: black;
+}

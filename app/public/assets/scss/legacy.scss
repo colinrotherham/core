@@ -2,14 +2,11 @@
  * Legacy IE browser styles
  */
 
-// Modules via npm
-@import 'normalize-scss/sass/normalize/import-now';
-@import 'breakpoint-sass/stylesheets/breakpoint';
-
 // Disable media queries
+@import 'breakpoint-sass/stylesheets/breakpoint';
 @include breakpoint-set('no queries', true);
 
-// Re-import main stylesheets
+// Add stylesheets + @media content
 @import 'starter';
 @import 'main';
 

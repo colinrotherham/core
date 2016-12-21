@@ -15,8 +15,6 @@ html, body, button, input, select, textarea {
 }
 
 html {
-	background: white;
-	color: black;
 	box-sizing: border-box;
 }
 
@@ -26,6 +24,10 @@ body {
 
 blockquote {
 	margin: 0;
+}
+
+p {
+	line-height: 1.5;
 }
 
 *, *:before, *:after {

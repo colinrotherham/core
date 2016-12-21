@@ -2,4 +2,13 @@
  * Variables
  */
 
-$breakpoint-tablet: em(768px), 'no-query' true;
+$colours: (
+	'content': white,
+	'background': rgb(0, 58, 99)
+);
+
+$tablet: 768px, 'no-query' true;
+$desktop: 1024px, 'no-query' true;
+
+// Convert breakpoints to ems
+@include breakpoint-set('to ems', true);

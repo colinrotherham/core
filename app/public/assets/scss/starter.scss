@@ -10,6 +10,10 @@
 // Base partials
 @import 'base/variables';
 @import 'base/core';
+@import 'base/critical';
 
 // Starter partials
 @import 'partials/page';
+@import 'partials/container';
+@import 'partials/wrapper';
+@import 'partials/headline';

@@ -1,0 +1,15 @@
+/**
+ * Headline
+ */
+
+.headline {
+	margin-bottom: 0.25em;
+
+	&--section {
+		@include font-attributes(40px, 44px);
+	}
+
+	+ p {
+		margin-top: 0;
+	}
+}

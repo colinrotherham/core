@@ -3,5 +3,6 @@
  */
 
 .page {
-	padding: 25px;
+	background: map-get($colours, 'background');
+	color: map-get($colours, 'content');
 }

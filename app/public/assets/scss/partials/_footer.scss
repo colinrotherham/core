@@ -3,8 +3,16 @@
  */
 
 .footer {
-	padding: 10px 25px;
+	display: block;
 
-	background: #003a63;
-	color: white;
+	background: map-get($colours, 'background');
+	color: mix(map-get($colours, 'background'), map-get($colours, 'content'), 20%);
+
+	strong {
+		display: inline-block;
+		padding: 0 6px;
+
+		border: 1px solid mix(map-get($colours, 'background'), map-get($colours, 'content'), 20%);;
+		border-radius: 4px;
+	}
 }
