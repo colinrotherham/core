@@ -81,7 +81,7 @@ module.exports = function (paths, gulp, plugins) {
 
 			// Uglify and switch to build location
 			.pipe(plugins.if(!isDebug, plugins.uglify(options.uglify)))
-			.pipe(plugins.concat((excludeModules ? name + '-libs' : name) + '.min.js'))
+			.pipe(plugins.rename((excludeModules ? name + '-libs' : name) + '.min.js'))
 
 			// Write to source maps
 			.pipe(plugins.sourcemaps.write('.', {

@@ -40,7 +40,7 @@ module.exports = function (paths, gulp, plugins) {
 
 			// Process PostCSS, rename
 			.pipe(plugins.postcss(cssTasks))
-			.pipe(plugins.concat(name + '.min.css'))
+			.pipe(plugins.rename(name + '.min.css'))
 
 			// Write to source maps
 			.pipe(plugins.sourcemaps.write('.', {
