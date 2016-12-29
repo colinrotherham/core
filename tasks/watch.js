@@ -41,7 +41,7 @@ module.exports = function (paths, gulp, plugins) {
 		}));
 
 		// Watch for static asset changes
-		plugins.watch([pathFonts, pathImages], plugins.batch(function (events, done) {
+		plugins.watch([pathFonts, pathImages, pathSVG], plugins.batch(function (events, done) {
 			return plugins.runSequence('copy', done);
 		}));
 	};
