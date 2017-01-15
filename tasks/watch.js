@@ -14,7 +14,7 @@ module.exports = function (paths, gulp, plugins) {
 		var pathJS = plugins.path.resolve(paths.src, '**/*.js');
 		var pathFonts = plugins.path.resolve(paths.src, '**/fonts/**');
 		var pathImages = plugins.path.resolve(paths.src, '**/*.{png,jpg,gif}');
-		var pathSVG = plugins.path.resolve(paths.src, '**/*.{svg}');
+		var pathSVG = plugins.path.resolve(paths.src, '**/*.svg');
 		var pathHTML = plugins.path.resolve(paths.src, '**/*.hbs');
 
 		// Critical build paths (e.g. rebuild HTML when critical styles change)
