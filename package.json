@@ -47,6 +47,7 @@
     "handlebars": "^4.0.6",
     "handlebars-helpers": "^0.7.5",
     "html5shiv": "^3.7.3",
+    "imagemin-mozjpeg": "^6.0.0",
     "imagemin-pngquant": "^5.0.0",
     "jquery": "^1.12.4",
     "normalize-scss": "^6.0.0",
