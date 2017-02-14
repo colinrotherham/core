@@ -10,9 +10,9 @@
 				],
 				"ignore": [
 					"after-comment",
-					"all-nested",
+					"inside-block",
 					"blockless-after-same-name-blockless",
-					"blockless-group"
+					"blockless-after-blockless"
 				]
 			}
 		],
@@ -25,7 +25,7 @@
 			}
 		],
 		"at-rule-name-space-after": "always",
-		"rule-non-nested-empty-line-before":  [
+		"rule-empty-line-before":  [
 			"always", {
 				"except": [
 					"after-single-line-comment"
