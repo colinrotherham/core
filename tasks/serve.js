@@ -1,5 +1,5 @@
 /**
- * BrowserSync
+ * Serve
  */
 
 'use strict';

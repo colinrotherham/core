@@ -16,7 +16,7 @@ module.exports = function (paths, gulp, plugins) {
 
 		// Watch for JS changes
 		plugins.watch(`${paths.src}/**/*.js`, plugins.batch(function (events, done) {
-			return plugins.sequence('javascript-lint', 'javascript', done);
+			return plugins.sequence('js-lint', 'js', done);
 		}));
 
 		// Watch for HTML changes
@@ -29,7 +29,7 @@ module.exports = function (paths, gulp, plugins) {
 
 		// Watch for SVG changes
 		plugins.watch(`${paths.src}/public/assets/img/**/*.svg`, plugins.batch(function (events, done) {
-			return plugins.sequence('image-fallbacks', 'image-optimise', done);
+			return plugins.sequence('img-fallbacks', 'img', done);
 		}));
 
 		// Watch for static asset changes

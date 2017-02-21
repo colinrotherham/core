@@ -1,5 +1,5 @@
 /**
- * Optimise images
+ * Output optimised images
  */
 
 'use strict';
