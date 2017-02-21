@@ -8,9 +8,7 @@ var plugins = require('gulp-load-plugins')();
 var config = require('./package.json').config;
 
 // Non-gulp modules
-plugins.path = require('path');
 plugins.browserSync = require('browser-sync');
-plugins.eventStream = require('event-stream');
 plugins.sequence = require('run-sequence');
 
 /**
