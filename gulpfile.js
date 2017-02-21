@@ -27,6 +27,7 @@ gulp.task('js', getModule('js'));
 gulp.task('js-lint', getModule('js/lint'));
 gulp.task('html', getModule('html'));
 gulp.task('html-lint', getModule('html/lint'));
+gulp.task('html-a11y', getModule('html/a11y'));
 gulp.task('img', getModule('img'));
 gulp.task('img-fallbacks', getModule('img/fallbacks'));
 gulp.task('watch', getModule('watch'));

@@ -27,6 +27,7 @@
     "fg-loadcss": "^1.2.0",
     "fg-loadjs": "^1.0.0",
     "gulp": "^3.9.1",
+    "gulp-accessibility": "^3.0.1",
     "gulp-batch": "^1.0.5",
     "gulp-eslint": "^3.0.1",
     "gulp-filter": "^4.0.0",
