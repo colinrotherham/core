@@ -28,6 +28,7 @@ gulp.task('css', plugins.getModule('css/bundle'));
 gulp.task('javascript-lint', plugins.getModule('javascript/lint'));
 gulp.task('javascript', plugins.getModule('javascript'));
 gulp.task('html', plugins.getModule('html/html'));
+gulp.task('html-lint', plugins.getModule('html/lint'));
 gulp.task('image-fallbacks', plugins.getModule('images/fallbacks'));
 gulp.task('image-optimise', plugins.getModule('images/optimise'));
 gulp.task('watch', plugins.getModule('watch'));

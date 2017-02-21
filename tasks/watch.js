@@ -32,7 +32,7 @@ module.exports = function (paths, gulp, plugins) {
 
 		// Watch for HTML changes
 		plugins.watch([pathHTML, pathCriticalCSS], plugins.batch(function (events, done) {
-			return plugins.runSequence('html', done);
+			return plugins.runSequence('html', 'html-lint', done);
 		}));
 
 		// Watch for SVG changes
