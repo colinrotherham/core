@@ -39,7 +39,7 @@ gulp.task('serve', getModule('serve'));
 
 // Shared build tasks
 gulp.task('build', ['clean'], function (callback) {
-	plugins.sequence(['js-lint', 'css-lint'], ['js', 'css', 'img-fallbacks'], ['html', 'img'], 'html-lint', callback);
+	plugins.sequence(['js-lint', 'css-lint'], ['js', 'css', 'img-fallbacks'], ['html', 'img'], ['html-lint', 'html-a11y'], callback);
 });
 
 // Default tasks
