@@ -11,12 +11,12 @@ module.exports = function (paths, gulp, plugins) {
 
 		// Watch for CSS changes
 		plugins.watch(`${paths.src}/**/*.scss`, plugins.batch(function (events, done) {
-			return plugins.runSequence('css-lint', 'css', done);
+			return plugins.sequence('css-lint', 'css', done);
 		}));
 
 		// Watch for JS changes
 		plugins.watch(`${paths.src}/**/*.js`, plugins.batch(function (events, done) {
-			return plugins.runSequence('javascript-lint', 'javascript', done);
+			return plugins.sequence('javascript-lint', 'javascript', done);
 		}));
 
 		// Watch for HTML changes
@@ -24,17 +24,17 @@ module.exports = function (paths, gulp, plugins) {
 			`${paths.src}/templates/**/*.hbs`,
 			`${paths.build}/assets/css/starter.min.css`
 		], plugins.batch(function (events, done) {
-			return plugins.runSequence('html', 'html-lint', done);
+			return plugins.sequence('html', 'html-lint', done);
 		}));
 
 		// Watch for SVG changes
 		plugins.watch(`${paths.src}/public/assets/img/**/*.svg`, plugins.batch(function (events, done) {
-			return plugins.runSequence('image-fallbacks', 'image-optimise', done);
+			return plugins.sequence('image-fallbacks', 'image-optimise', done);
 		}));
 
 		// Watch for static asset changes
 		plugins.watch(`${paths.src}/public/**`, plugins.batch(function (events, done) {
-			return plugins.runSequence('copy', done);
+			return plugins.sequence('copy', done);
 		}));
 	};
 };

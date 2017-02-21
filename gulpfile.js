@@ -10,8 +10,8 @@ var config = require('./package.json').config;
 // Non-gulp modules
 plugins.path = require('path');
 plugins.browserSync = require('browser-sync');
-plugins.runSequence = require('run-sequence');
 plugins.eventStream = require('event-stream');
+plugins.sequence = require('run-sequence');
 
 /**
  * Child tasks
@@ -40,17 +40,17 @@ gulp.task('browser-sync', getModule('browser-sync'));
 
 // Shared build tasks
 gulp.task('build', ['clean'], function (callback) {
-	plugins.runSequence(['css-lint', 'css'], ['javascript-lint', 'javascript'], ['image-fallbacks', 'html'], 'html-lint', callback);
+	plugins.sequence(['css-lint', 'css'], ['javascript-lint', 'javascript'], ['image-fallbacks', 'html'], 'html-lint', callback);
 });
 
 // Default tasks
 gulp.task('default', ['clean'], function (callback) {
-	plugins.runSequence('build', 'copy', callback);
+	plugins.sequence('build', 'copy', callback);
 });
 
 // Development tasks
 gulp.task('dev', ['clean'], function (callback) {
-	plugins.runSequence('build', 'copy', ['watch', 'browser-sync'], callback);
+	plugins.sequence('build', 'copy', ['watch', 'browser-sync'], callback);
 });
 
 // Live tasks
