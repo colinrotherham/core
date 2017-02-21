@@ -24,7 +24,7 @@ module.exports = function (paths, gulp, plugins) {
 			`${paths.src}/templates/**/*.hbs`,
 			`${paths.build}/assets/css/starter.min.css`
 		], plugins.batch(function (events, done) {
-			return plugins.sequence('html', 'html-lint', done);
+			return plugins.sequence('html', ['html-lint', 'html-a11y'], done);
 		}));
 
 		// Watch for SVG changes
