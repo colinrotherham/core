@@ -26,7 +26,7 @@ gulp.task('copy', plugins.getModule('copy'));
 gulp.task('css-lint', plugins.getModule('css/lint'));
 gulp.task('css', plugins.getModule('css/bundle'));
 gulp.task('javascript-lint', plugins.getModule('javascript/lint'));
-gulp.task('javascript', plugins.getModule('javascript/bundle'));
+gulp.task('javascript', plugins.getModule('javascript'));
 gulp.task('html', plugins.getModule('html/html'));
 gulp.task('image-fallbacks', plugins.getModule('images/fallbacks'));
 gulp.task('image-optimise', plugins.getModule('images/optimise'));
