@@ -8,8 +8,8 @@ Includes:
 
 1. Critical CSS loading (100/100 on Google PageSpeed)
 2. HTML template generation via Assemble.io
-3. CommonJS module bundling
-4. Sass and JavaScript linting
+3. CommonJS module bundling via webpack
+4. Sass, JavaScript and HTML linting
 5. Supports Internet Explorer 8 (yikes)
 
 ### Initial setup
@@ -30,9 +30,9 @@ npm install
 ### Building
 All files for deployment copied to `/dist/`
 
-Output a live build.
+Output a build.
 ```
-gulp live
+gulp
 ```
 
 Output a development build, proxied via BrowserSync:
