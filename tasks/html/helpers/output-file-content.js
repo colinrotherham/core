@@ -4,20 +4,17 @@
 
 'use strict';
 
-module.exports = function (paths, gulp, plugins) {
+// Return helper
+module.exports = function (path) {
+	var contents = '';
 
-	// Return helper
-	return function (path) {
-		var contents = '';
+	try {
+		contents = require('fs').readFileSync(path, 'utf8');
+	}
 
-		try {
-			contents = require('fs').readFileSync(path, 'utf8');
-		}
+	catch (err) {
+		// No content
+	}
 
-		catch (err) {
-			// No content
-		}
-
-		return contents.trim();
-	};
+	return contents.trim();
 };

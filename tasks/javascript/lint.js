@@ -4,13 +4,13 @@
 
 'use strict';
 
-module.exports = function(paths, gulp, plugins) {
+module.exports = function (paths, gulp, plugins) {
 
 	// Return module
 	return function (callback) {
 
 		// Load all JavaScript files
-		return gulp.src(plugins.path.resolve(paths.src, '**/*.js'))
+		return gulp.src(`${paths.src}/**/*.js`)
 			.pipe(plugins.eslint())
 			.pipe(plugins.eslint.format());
 	};

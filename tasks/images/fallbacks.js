@@ -8,10 +8,9 @@ module.exports = function (paths, gulp, plugins) {
 
 	// Return module
 	return function () {
-
-		return gulp.src(plugins.path.resolve(paths.src, '**/*.svg'))
+		return gulp.src(`${paths.src}/public/assets/img/**/*.svg`)
 			.pipe(plugins.svg2png())
-			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')))
-			.pipe(plugins.browserSync.reload({ stream: true }));
+			.pipe(gulp.dest(`${paths.build}/assets/img`))
+			.pipe(plugins.browserSync.stream());
 	};
 };

@@ -51,12 +51,12 @@ module.exports = function (paths, gulp, plugins) {
 	return function () {
 
 		// Process entry point
-		return gulp.src(plugins.getModule('javascript/config'))
+		return gulp.src(require('./config')(paths))
 			.pipe(named())
 			.pipe(stream(options, webpack))
 
 			// Write to files
-			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/js')))
+			.pipe(gulp.dest(`${paths.build}/assets/js`))
 
 			// Reload in browser
 			.pipe(plugins.filter('**/*.js'))

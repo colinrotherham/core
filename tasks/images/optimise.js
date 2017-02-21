@@ -10,27 +10,21 @@ module.exports = function (paths, gulp, plugins) {
 	var pngquant = require('imagemin-pngquant');
 	var mozjpeg = require('imagemin-mozjpeg');
 
+	// Override plugins (default + pngquant, mozjpeg)
+	var use = [
+		plugins.imagemin.gifsicle(),
+		plugins.imagemin.svgo(),
+		pngquant(),
+		mozjpeg({
+			quality: 70,
+			progressive: true
+		})
+	];
+
 	// Return module
 	return function () {
-
-		// Override plugins (default + pngquant, mozjpeg)
-		var use = [
-			plugins.imagemin.gifsicle(),
-			plugins.imagemin.svgo(),
-			pngquant(),
-			mozjpeg({
-				quality: 70,
-				progressive: true
-			})
-		];
-
-		// Additional options
-		var options = {
-			progressive: true
-		};
-
-		return gulp.src(plugins.path.resolve(paths.build, '**/*.{png,jpg,gif,svg}'))
-			.pipe(plugins.imagemin(options))
-			.pipe(gulp.dest(plugins.path.resolve(paths.build, 'assets/img')));
+		return gulp.src(`${paths.build}/assets/img/**/*.{png,jpg,gif,svg}`)
+			.pipe(plugins.imagemin(use))
+			.pipe(gulp.dest(`${paths.build}/assets/img`));
 	};
 };

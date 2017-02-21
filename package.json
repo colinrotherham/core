@@ -62,9 +62,9 @@
   },
   "config": {
     "paths": {
-      "src": "app/",
-      "build": "dist/",
-      "tasks": "tasks/"
+      "src": "./app",
+      "build": "./dist",
+      "tasks": "./tasks"
     }
   }
 }

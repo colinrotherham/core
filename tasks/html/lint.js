@@ -6,8 +6,9 @@
 
 module.exports = function (paths, gulp, plugins) {
 
+	// Return module
 	return function (callback) {
-		return gulp.src(plugins.path.resolve(paths.build, '*.html'))
+		return gulp.src(`${paths.build}/*.html`)
 			.pipe(plugins.htmlhint())
 			.pipe(plugins.htmlhint.reporter('htmlhint-stylish'));
 	};
