@@ -10,7 +10,7 @@ module.exports = function (paths, gulp, plugins) {
 		notify: false,
 		open: false,
 		reloadDelay: 400,
-		reloadDebounce: 100,
+		reloadThrottle: 100,
 		server: {
 			baseDir: paths.build
 		}
