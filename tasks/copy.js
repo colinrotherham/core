@@ -10,6 +10,7 @@ module.exports = function (paths, gulp, plugins) {
 	return function (callback) {
 		return gulp.src(`${paths.src}/public/**`, { dot: true })
 			.pipe(plugins.newer(paths.build))
-			.pipe(gulp.dest(paths.build));
+			.pipe(gulp.dest(paths.build))
+			.pipe(plugins.preservetime());
 	};
 };
