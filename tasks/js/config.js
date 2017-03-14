@@ -10,12 +10,12 @@ module.exports = function (paths, gulp, plugins) {
 	return [
 
 		// Starter JS bundle (assists Critical CSS)
-		`${paths.src}/public/assets/js/starter.js`,
+		`${paths.srcAssets}/js/starter.js`,
 
 		// Main JS bundle (Modern browsers)
-		`${paths.src}/public/assets/js/main.js`,
+		`${paths.srcAssets}/js/main.js`,
 
 		// Legacy JS bundle (IE8 and lower only)
-		`${paths.src}/public/assets/js/legacy.js`
+		`${paths.srcAssets}/js/legacy.js`
 	];
 };

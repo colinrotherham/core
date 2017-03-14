@@ -56,7 +56,7 @@ module.exports = function (paths, gulp, plugins) {
 			.pipe(stream(options, webpack))
 
 			// Write to files
-			.pipe(gulp.dest(`${paths.build}/assets/js`))
+			.pipe(gulp.dest(`${paths.buildAssets}/js`))
 
 			// Reload in browser
 			.pipe(plugins.filter('**/*.js'))

@@ -10,7 +10,7 @@ module.exports = function (paths, gulp, plugins) {
 	return function (callback) {
 
 		// Load all JavaScript files
-		return gulp.src(`${paths.src}/**/*.js`)
+		return gulp.src(`${paths.srcAssets}/**/*.js`)
 			.pipe(plugins.eslint())
 			.pipe(plugins.eslint.format());
 	};

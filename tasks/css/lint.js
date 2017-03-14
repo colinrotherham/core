@@ -20,7 +20,7 @@ module.exports = function (paths, gulp, plugins) {
 	return function (callback) {
 
 		// Load all Sass files
-		return gulp.src(`${paths.src}/**/*.scss`)
+		return gulp.src(`${paths.srcAssets}/**/*.scss`)
 			.pipe(plugins.stylelint(options));
 	};
 };

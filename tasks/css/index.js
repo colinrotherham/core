@@ -60,7 +60,7 @@ module.exports = function (paths, gulp, plugins) {
 
 			// Write to files
 			.pipe(plugins.sourcemaps.write('.'))
-			.pipe(gulp.dest(`${paths.build}/assets/css`))
+			.pipe(gulp.dest(`${paths.buildAssets}/css`))
 
 			// Reload in browser
 			.pipe(plugins.filter('**/*.css'))

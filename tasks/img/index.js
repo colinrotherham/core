@@ -22,8 +22,8 @@ module.exports = function (paths, gulp, plugins) {
 
 	// Return module
 	return function () {
-		return gulp.src(`${paths.build}/assets/img/**/*.{png,jpg,gif,svg}`)
+		return gulp.src(`${paths.buildAssets}/img/**/*.{png,jpg,gif,svg}`)
 			.pipe(plugins.imagemin(use))
-			.pipe(gulp.dest(`${paths.build}/assets/img`));
+			.pipe(gulp.dest(`${paths.buildAssets}/img`));
 	};
 };
