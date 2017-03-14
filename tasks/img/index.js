@@ -6,18 +6,17 @@
 
 module.exports = function (paths, gulp, plugins) {
 
-	// Child modules
-	var pngquant = require('imagemin-pngquant');
-	var mozjpeg = require('imagemin-mozjpeg');
-
-	// Override plugins (default + pngquant, mozjpeg)
+	// Override plugin settings
 	var use = [
 		plugins.imagemin.gifsicle(),
-		plugins.imagemin.svgo(),
-		pngquant(),
-		mozjpeg({
-			quality: 70,
+		plugins.imagemin.jpegtran({
 			progressive: true
+		}),
+		plugins.imagemin.optipng(),
+		plugins.imagemin.svgo({
+			plugins: [{
+				removeViewBox: false
+			}]
 		})
 	];
 
