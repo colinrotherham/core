@@ -3,6 +3,7 @@
 		"stylelint-scss"
 	],
 	"rules": {
+		"indentation": "tab",
 		"at-rule-empty-line-before": [
 			"always", {
 				"ignoreAtRules": [
