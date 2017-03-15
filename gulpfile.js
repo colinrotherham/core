@@ -10,6 +10,7 @@ var config = require('./package.json').config;
 // Non-gulp modules
 plugins.browserSync = require('browser-sync');
 plugins.sequence = require('run-sequence');
+plugins.stream = require('event-stream');
 
 /**
  * Child tasks
