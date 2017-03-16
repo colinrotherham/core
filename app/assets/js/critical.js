@@ -1,5 +1,5 @@
 /**
- * Start starter modules
+ * Start critical modules
  */
 
 'use strict';

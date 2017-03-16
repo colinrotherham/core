@@ -9,8 +9,8 @@ module.exports = function (paths) {
 	// Return bundles
 	return [
 
-		// Starter style bundle (Critical CSS)
-		`${paths.srcAssets}/scss/starter.scss`,
+		// Critical style bundle (inline CSS)
+		`${paths.srcAssets}/scss/critical.scss`,
 
 		// Main style bundle (Modern browsers)
 		`${paths.srcAssets}/scss/main.scss`,

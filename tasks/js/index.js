@@ -28,7 +28,7 @@ module.exports = function (paths, gulp, plugins) {
 				}
 			}),
 			new webpack.optimize.CommonsChunkPlugin({
-				name: 'starter'
+				name: 'critical'
 			}),
 			new webpack.optimize.UglifyJsPlugin({
 				compress: {

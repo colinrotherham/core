@@ -7,7 +7,7 @@
 @include breakpoint-set('no queries', true);
 
 // Add stylesheets + @media content
-@import 'starter';
+@import 'critical';
 @import 'main';
 
 // Hard code widths

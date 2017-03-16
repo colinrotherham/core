@@ -2,12 +2,8 @@
  * Main browser styles
  */
 
-// Modules, mixins etc
-@import 'breakpoint-sass/stylesheets/breakpoint';
-@import 'modules/fonts';
-
 // Base partials
-@import 'base/variables';
+@import 'base/all';
 
 // Main partials
-@import 'partials/footer';
+@import 'main/all';

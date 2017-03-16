@@ -27,7 +27,7 @@ module.exports = function (paths, gulp, plugins) {
 		// Watch for HTML changes
 		plugins.watch([
 			`${paths.src}/templates/**/*.hbs`,
-			`${paths.buildAssets}/css/starter.min.css`
+			`${paths.buildAssets}/css/critical.min.css`
 		], plugins.batch(function (events, done) {
 			return plugins.sequence('html', ['html-lint', 'html-a11y'], done);
 		}));

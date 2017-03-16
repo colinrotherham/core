@@ -9,8 +9,8 @@ module.exports = function (paths, gulp, plugins) {
 	// Return bundles
 	return [
 
-		// Starter JS bundle (assists Critical CSS)
-		`${paths.srcAssets}/js/starter.js`,
+		// Critical JS bundle (assists inline CSS)
+		`${paths.srcAssets}/js/critical.js`,
 
 		// Main JS bundle (Modern browsers)
 		`${paths.srcAssets}/js/main.js`,
