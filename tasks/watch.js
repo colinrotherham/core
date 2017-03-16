@@ -10,7 +10,7 @@ module.exports = function (paths, gulp, plugins) {
 	return function () {
 
 		// Watch for static asset changes
-		plugins.watch(`${paths.src}/**`, plugins.batch(function (events, done) {
+		plugins.watch(`${paths.src}/**/*`, plugins.batch(function (events, done) {
 			return plugins.sequence('copy', done);
 		}));
 
