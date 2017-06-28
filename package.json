@@ -15,7 +15,6 @@
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.18.5",
     "browserify": "^13.1.1",
-    "components-webfontloader": "~1.5.2",
     "css-mqpacker": "^5.0.1",
     "csswring": "^5.1.0",
     "del": "^2.2.2",
