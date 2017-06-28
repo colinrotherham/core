@@ -9,7 +9,7 @@ $line-height-base: 19.2px !default;
 	@return ($size/$font-size-base) * ($font-size-base / $context) * 1em;
 }
 
-@mixin font-size($size, $line-height, $context: $font-size-base) {
+@mixin font-size($size, $context: $font-size-base) {
 	font-size: em($size, $context);
 }
 
@@ -17,13 +17,13 @@ $line-height-base: 19.2px !default;
 	line-height: ($line-height/$size) * 1em;
 }
 
-@mixin letter-spacing($size, $letter-spacing) {
+@mixin letter-spacing($letter-spacing) {
 	letter-spacing: ($letter-spacing / 1000) * 1em;
 }
 
 // Photoshop helper mixin
 @mixin font-attributes($size, $line-height, $letter-spacing: 0, $context: $font-size-base) {
-	@include font-size($size, $line-height, $context);
+	@include font-size($size, $context);
 	@include line-height($size, $line-height);
-	@include letter-spacing($size, $letter-spacing);
+	@include letter-spacing($letter-spacing);
 }
