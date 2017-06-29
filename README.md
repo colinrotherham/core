@@ -2,9 +2,10 @@ Core
 ====
 
 ### What is it?
-Core is a Gulp-driven starter project (fork it and start a project).
+Core is a Gulp-driven starter project (fork it and start a project).  
+Try the demo: https://apps.colinr.com/core/
 
-Includes:
+### Features
 
 1. Critical CSS loading (100/100 on Google PageSpeed)
 2. HTML template generation via Assemble.io
