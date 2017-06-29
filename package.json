@@ -49,7 +49,7 @@
     "html5shiv": "^3.7.3",
     "htmlhint-stylish": "^1.0.3",
     "jquery": "^1.12.4",
-    "normalize-scss": "^6.0.0",
+    "normalize-scss": "^7.0.0",
     "picturefill": "^3.0.2",
     "run-sequence": "^1.2.2",
     "stylelint-scss": "^1.4.1",
