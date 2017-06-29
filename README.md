@@ -8,7 +8,7 @@ Includes:
 
 1. Critical CSS loading (100/100 on Google PageSpeed)
 2. HTML template generation via Assemble.io
-3. CommonJS module bundling via webpack
+3. ES6 module bundling via Babel and webpack
 4. Sass, JavaScript and HTML linting
 5. Supports Internet Explorer 8 (yikes)
 
