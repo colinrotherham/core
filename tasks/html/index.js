@@ -2,22 +2,24 @@
  * HTML
  */
 
-'use strict';
+import assemble from 'assemble';
+import browserSync from 'browser-sync';
+import handlebarsHelpers from 'handlebars-helpers';
+import outputFileContent from './helpers/output-file-content';
+import rename from 'gulp-rename';
 
-module.exports = function (paths, gulp, plugins) {
-
-	// Child modules
-	var assemble = require('assemble');
-	var app = assemble();
+// Return module
+export default (config, gulp) => {
+	const app = assemble();
 
 	// Add helpers
-	app.helper('outputFileContent', require('./helpers/output-file-content'));
+	app.helper('outputFileContent', outputFileContent);
 
 	// Return module
-	return function () {
+	return () => {
 
 		// Default page options
-		var options = {
+		const options = {
 			name: 'default',
 			locale: 'en-GB',
 
@@ -26,19 +28,19 @@ module.exports = function (paths, gulp, plugins) {
 		};
 
 		// Find layouts and partials
-		app.layouts(`${paths.src}/templates/layouts/*.hbs`);
-		app.partials(`${paths.src}/templates/partials/*.hbs`);
+		app.layouts(`${config.paths.src}/templates/layouts/*.hbs`);
+		app.partials(`${config.paths.src}/templates/partials/*.hbs`);
 
 		// Add classic helpers
-		app.helpers(require('handlebars-helpers')(), app.helpers);
+		app.helpers(handlebarsHelpers(), app.helpers);
 
 		// Build templates
-		return app.src(`${paths.src}/templates/*.hbs`)
+		return app.src(`${config.paths.src}/templates/*.hbs`)
 			.pipe(app.renderFile(options))
-			.pipe(plugins.rename({
+			.pipe(rename({
 				extname: '.html'
 			}))
-			.pipe(app.dest(paths.build))
-			.pipe(plugins.browserSync.stream());
+			.pipe(app.dest(config.paths.build))
+			.pipe(browserSync.stream());
 	};
 };

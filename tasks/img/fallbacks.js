@@ -2,15 +2,14 @@
  * Generate PNG fallbacks for SVGs
  */
 
-'use strict';
+import browserSync from 'browser-sync';
+import svg2png from 'gulp-svg2png';
 
-module.exports = function (paths, gulp, plugins) {
+// Return module
+export default (config, gulp) => {
 
-	// Return module
-	return function () {
-		return gulp.src(`${paths.srcAssets}/img/**/*.svg`)
-			.pipe(plugins.svg2png())
-			.pipe(gulp.dest(`${paths.buildAssets}/img`))
-			.pipe(plugins.browserSync.stream());
-	};
+	return () => gulp.src(`${config.paths.srcAssets}/img/**/*.svg`)
+		.pipe(svg2png())
+		.pipe(gulp.dest(`${config.paths.buildAssets}/img`))
+		.pipe(browserSync.stream());
 };

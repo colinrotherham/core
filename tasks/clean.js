@@ -2,12 +2,9 @@
  * Clean
  */
 
-'use strict';
+import del from 'del';
 
-module.exports = function (paths, gulp, plugins) {
-
-	// Return module
-	return function (callback) {
-		return require('del')(paths.build, callback);
-	};
+// Return module
+export default config => {
+	return () => del(config.paths.build);
 };

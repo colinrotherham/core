@@ -2,39 +2,39 @@
  * Watch
  */
 
-'use strict';
+import batch from 'gulp-batch';
+import runSequence from 'run-sequence';
+import watch from 'gulp-watch';
 
-module.exports = function (paths, gulp, plugins) {
+// Return module
+export default (config, gulp) => {
+	const sequence = runSequence.use(gulp);
 
-	// Return module
-	return function () {
+	return () => {
 
 		// Watch for static asset changes
-		plugins.watch(`${paths.src}/**/*`, plugins.batch(function (events, done) {
-			return plugins.sequence('copy', done);
+		watch(`${config.paths.src}/**/*`, batch((events, done) => {
+			return sequence('copy', done);
 		}));
 
 		// Watch for CSS changes
-		plugins.watch(`${paths.srcAssets}/**/*.scss`, plugins.batch(function (events, done) {
-			return plugins.sequence('css-lint', 'css', done);
+		watch(`${config.paths.srcAssets}/**/*.scss`, batch((events, done) => {
+			return sequence('lint:css', 'css', done);
 		}));
 
 		// Watch for JS changes
-		plugins.watch(`${paths.srcAssets}/**/*.js`, plugins.batch(function (events, done) {
-			return plugins.sequence('js-lint', 'js', done);
+		watch(`${config.paths.srcAssets}/**/*.js`, batch((events, done) => {
+			return sequence('lint:js', 'js', done);
 		}));
 
 		// Watch for HTML changes
-		plugins.watch([
-			`${paths.src}/templates/**/*.hbs`,
-			`${paths.buildAssets}/css/critical.min.css`
-		], plugins.batch(function (events, done) {
-			return plugins.sequence('html', ['html-lint', 'html-a11y'], done);
+		watch([`${config.paths.src}/templates/**/*.hbs`, `${config.paths.buildAssets}/css/critical.min.css`], batch((events, done) => {
+			return sequence('html', ['lint:html', 'lint:a11y'], done);
 		}));
 
 		// Watch for SVG changes
-		plugins.watch(`${paths.srcAssets}/img/**/*.svg`, plugins.batch(function (events, done) {
-			return plugins.sequence('img-fallbacks', 'img', done);
+		watch(`${config.paths.srcAssets}/img/**/*.svg`, batch((events, done) => {
+			return sequence('img:fallbacks', 'img:optimise', done);
 		}));
 	};
 };

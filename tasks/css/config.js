@@ -2,20 +2,19 @@
  * CSS config
  */
 
-'use strict';
-
-module.exports = function (paths) {
+// Return module
+export default config => {
 
 	// Return bundles
 	return [
 
 		// Critical style bundle (inline CSS)
-		`${paths.srcAssets}/scss/critical.scss`,
+		`${config.paths.srcAssets}/scss/critical.scss`,
 
 		// Main style bundle (Modern browsers)
-		`${paths.srcAssets}/scss/main.scss`,
+		`${config.paths.srcAssets}/scss/main.scss`,
 
 		// Legacy style bundle (IE8 and lower)
-		`${paths.srcAssets}/scss/legacy.scss`
+		`${config.paths.srcAssets}/scss/legacy.scss`
 	];
 };

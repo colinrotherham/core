@@ -2,11 +2,9 @@
  * File output (i.e. inlining content)
  */
 
-'use strict';
-
 // Return helper
-module.exports = function (path) {
-	var contents = '';
+export default path => {
+	let contents = '';
 
 	try {
 		contents = require('fs').readFileSync(path, 'utf8');

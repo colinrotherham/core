@@ -2,22 +2,20 @@
  * Serve
  */
 
-'use strict';
+import browserSync from 'browser-sync';
 
-module.exports = function (paths, gulp, plugins) {
+// Return module
+export default config => {
 
-	var options = {
+	const options = {
 		notify: false,
 		open: false,
 		reloadDelay: 400,
 		reloadThrottle: 100,
 		server: {
-			baseDir: paths.build
+			baseDir: config.paths.build
 		}
 	};
 
-	// Return module
-	return function () {
-		return plugins.browserSync(options);
-	};
+	return () => browserSync(options);
 };

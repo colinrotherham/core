@@ -2,64 +2,26 @@
  * JavaScript
  */
 
-'use strict';
+import browserSync from 'browser-sync';
+import named from 'vinyl-named';
+import path from 'path';
+import paths from './config';
+import stream from 'webpack-stream';
+import webpack from 'webpack';
 
-module.exports = function (paths, gulp, plugins) {
+// Use config for running process
+const webpackConfig = require(path.resolve(process.cwd(), 'webpack.config.js')).default;
 
-	// Child modules
-	var stream = require('webpack-stream');
-	var webpack = require('webpack');
-	var named = require('vinyl-named');
+// Return module
+export default (config, gulp) => {
 
-	// Webpack options
-	var options = {
-		devtool: 'source-map',
+	return () => gulp.src(paths(config))
+		.pipe(named())
+		.pipe(stream(webpackConfig, webpack))
 
-		output: {
-			chunkFilename: '[name]-[chunkhash].min.js',
-			filename: '[name].min.js',
-			publicPath: '/assets/js/'
-		},
+		// Write to files
+		.pipe(gulp.dest(`${config.paths.buildAssets}/js`))
 
-		plugins: [
-			new webpack.DefinePlugin({
-				'process.env': {
-					'NODE_ENV': 'production'
-				}
-			}),
-			new webpack.optimize.CommonsChunkPlugin({
-				name: 'critical'
-			}),
-			new webpack.optimize.UglifyJsPlugin({
-				compress: {
-					screw_ie8: false,
-					warnings: false
-				},
-				mangle: {
-					screw_ie8: false
-				},
-				output: {
-					comments: false,
-					screw_ie8: false
-				},
-				sourceMap: true
-			})
-		]
-	};
-
-	// Return module
-	return function () {
-
-		// Process entry point
-		return gulp.src(require('./config')(paths))
-			.pipe(named())
-			.pipe(stream(options, webpack))
-
-			// Write to files
-			.pipe(gulp.dest(`${paths.buildAssets}/js`))
-
-			// Reload in browser
-			.pipe(plugins.filter('**/*.js'))
-			.pipe(plugins.browserSync.stream());
-	};
+		// Reload in browser
+		.pipe(browserSync.stream({ match: '**/*.js' }));
 };

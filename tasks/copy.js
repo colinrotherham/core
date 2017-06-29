@@ -2,39 +2,42 @@
  * Copy
  */
 
-'use strict';
+import changed from 'gulp-changed';
+import preservetime from 'gulp-preservetime';
+import stream from 'event-stream';
 
-module.exports = function (paths, gulp, plugins) {
+// Return module
+export default (config, gulp) => {
 
-	// Return module
-	return function (callback) {
+	// Paths to copy
+	const pathsCopy = [
 
-		// Paths to copy
-		var pathsCopy = [
+		// Copy all files
+		`${config.paths.src}/**/*.*`,
 
-			// Copy all files
-			`${paths.src}/**`,
+		// Skip templates
+		`!${config.paths.src}/templates`,
+		`!${config.paths.src}/templates/**`,
 
-			// Skip templates
-			`!${paths.src}/templates`,
-			`!${paths.src}/templates/**`,
+		// Skip assets
+		`!${config.paths.src}/assets`,
+		`!${config.paths.src}/assets/**`
+	];
 
-			// Skip assets
-			`!${paths.src}/assets`,
-			`!${paths.src}/assets/**`
-		];
-
-		return plugins.stream.merge(
-
-			gulp.src(pathsCopy, { dot: true })
-				.pipe(plugins.newer(paths.build))
-				.pipe(gulp.dest(paths.build))
-				.pipe(plugins.preservetime()),
-
-			gulp.src(`${paths.srcAssets}/**`, { dot: true })
-				.pipe(plugins.newer(paths.build))
-				.pipe(gulp.dest(paths.buildAssets))
-				.pipe(plugins.preservetime())
-		);
+	const options = {
+		hasChanged: changed.compareContents
 	};
+
+	return () => stream.merge(
+
+		gulp.src(pathsCopy, { dot: true })
+			.pipe(changed(config.paths.build, options))
+			.pipe(gulp.dest(config.paths.build))
+			.pipe(preservetime()),
+
+		gulp.src(`${config.paths.srcAssets}/**`, { dot: true })
+			.pipe(changed(config.paths.build, options))
+			.pipe(gulp.dest(config.paths.buildAssets))
+			.pipe(preservetime())
+	);
 };

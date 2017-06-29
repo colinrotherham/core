@@ -2,19 +2,23 @@
  * CSS
  */
 
-'use strict';
+import autoprefixer from 'autoprefixer';
+import browserSync from 'browser-sync';
+import csswring from 'csswring';
+import mqpacker from 'css-mqpacker';
+import paths from './config';
+import postcss from 'gulp-postcss';
+import rename from 'gulp-rename';
+import sass from 'gulp-sass';
+import sourcemaps from 'gulp-sourcemaps';
 
-module.exports = function (paths, gulp, plugins) {
-
-	var autoprefixer = require('autoprefixer');
-	var csswring = require('csswring');
-	var mqpacker = require('css-mqpacker');
+// Return module
+export default (config, gulp) => {
 
 	// Module options
-	var options = {
+	const options = {
 
 		autoprefixer: {
-			browsers: ['> 2%', 'IE >= 8', 'iOS >= 7'],
 			cascade: false,
 			map: true,
 			remove: true
@@ -36,34 +40,30 @@ module.exports = function (paths, gulp, plugins) {
 		}
 	};
 
-	// Return module
-	return function () {
-		return gulp.src(require('./config')(paths))
+	return () => gulp.src(paths(config))
 
-			// Start sourcemaps
-			.pipe(plugins.sourcemaps.init())
+		// Start sourcemaps
+		.pipe(sourcemaps.init())
 
-			// Process Sass
-			.pipe(plugins.sass(options.sass).on('error', plugins.sass.logError))
+		// Process Sass
+		.pipe(sass(options.sass).on('error', sass.logError))
 
-			// Process PostCSS
-			.pipe(plugins.postcss([
-				autoprefixer(options.autoprefixer),
-				csswring(options.csswring),
-				mqpacker(options.mqpacker)
-			]))
+		// Process PostCSS
+		.pipe(postcss([
+			autoprefixer(options.autoprefixer),
+			csswring(options.csswring),
+			mqpacker(options.mqpacker)
+		]))
 
-			// Rename
-			.pipe(plugins.rename({
-				extname: '.min.css'
-			}))
+		// Rename
+		.pipe(rename({
+			extname: '.min.css'
+		}))
 
-			// Write to files
-			.pipe(plugins.sourcemaps.write('.'))
-			.pipe(gulp.dest(`${paths.buildAssets}/css`))
+		// Write to files
+		.pipe(sourcemaps.write('.'))
+		.pipe(gulp.dest(`${config.paths.buildAssets}/css`))
 
-			// Reload in browser
-			.pipe(plugins.filter('**/*.css'))
-			.pipe(plugins.browserSync.stream());
-	};
+		// Reload in browser
+		.pipe(browserSync.stream({ match: '**/*.css' }));
 };
