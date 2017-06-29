@@ -29,7 +29,7 @@ export default (config, gulp) => {
 
 		// Watch for HTML changes
 		watch([`${config.paths.src}/templates/**/*.hbs`, `${config.paths.buildAssets}/css/critical.min.css`], batch((events, done) => {
-			return sequence('html', ['lint:html', 'lint:a11y'], done);
+			return sequence('html', done);
 		}));
 
 		// Watch for SVG changes
