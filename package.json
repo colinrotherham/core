@@ -9,6 +9,11 @@
   },
   "author": "Colin Rotherham",
   "homepage": "https://github.com/colinrotherham/core",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production gulp",
+    "dev": "cross-env NODE_ENV=development gulp dev",
+    "test": "gulp test"
+  },
   "devDependencies": {
     "assemble": "^0.24.3",
     "autoprefixer": "^7.1.0",
@@ -21,6 +26,7 @@
     "babel-register": "^6.24.1",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.18.8",
+    "cross-env": "^5.0.1",
     "css-mqpacker": "^6.0.0",
     "csswring": "^6.0.0",
     "del": "^3.0.0",

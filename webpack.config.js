@@ -44,11 +44,6 @@ export default {
 	},
 
 	plugins: [
-		new webpack.DefinePlugin({
-			'process.env': {
-				'NODE_ENV': 'production'
-			}
-		}),
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'critical'
 		}),

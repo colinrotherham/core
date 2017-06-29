@@ -37,12 +37,17 @@ gulp.task('compile', done => {
 
 // Shared build tasks
 gulp.task('build', done => {
-	sequence(['compile', 'img:fallbacks'], ['html', 'img:optimise'], ['lint:html', 'lint:a11y'], done);
+	sequence(['compile', 'img:fallbacks'], ['html', 'img:optimise'], done);
 });
 
 // Default tasks
 gulp.task('default', ['clean'], done => {
 	sequence('copy', 'build', done);
+});
+
+// Test tasks
+gulp.task('test', done => {
+	sequence('lint:html', 'lint:a11y', done);
 });
 
 // Development tasks

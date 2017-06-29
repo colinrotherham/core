@@ -32,10 +32,17 @@ All files for deployment copied to `/dist/`
 
 Output a build.
 ```
-gulp
+npm run build
 ```
 
 Output a development build, proxied via BrowserSync:
 ```
-gulp dev
+npm run dev
+```
+
+### Testing
+Run tests on the build’s HTML output
+
+```
+npm test
 ```
