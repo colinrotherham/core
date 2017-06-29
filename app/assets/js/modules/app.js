@@ -2,18 +2,11 @@
  * App launcher
  */
 
-'use strict';
+import './example';
 
-module.exports = function App () {
-	var self = this;
+export default class App {
 
-	// Internal methods
-	self.init = function () {
-
-		// Other modules
-		require('./example');
-	};
-
-	// Return instance
-	return self;
-};
+	init () {
+		console.log('App started');
+	}
+}

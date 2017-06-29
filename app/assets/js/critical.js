@@ -2,6 +2,6 @@
  * Start critical modules
  */
 
-'use strict';
+import loadCSS from 'fg-loadcss';
 
-window.loadCSS = (require('fg-loadcss')).loadCSS;
+window.loadCSS = loadCSS.loadCSS;

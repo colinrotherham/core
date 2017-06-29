@@ -2,9 +2,8 @@
  * Start app
  */
 
-'use strict';
+import 'picturefill';
+import App from './modules/app';
 
-require('picturefill');
-
-var app = new (require('./modules/app'))();
+const app = new App();
 app.init();

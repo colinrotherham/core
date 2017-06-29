@@ -2,10 +2,7 @@
  * Example module
  */
 
-'use strict';
-
-// Dependencies
-var $ = require('jquery');
+import $ from 'jquery';
 
 // Test jQuery dependency
 if ($ && window.console) {
