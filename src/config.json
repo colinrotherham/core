@@ -1,0 +1,31 @@
+{
+	"clean": {
+		"src": "./dist"
+	},
+	"copy": {
+		"src": [
+			"./app/**/*.*",
+			"!./app/templates",
+			"!./app/templates/**",
+			"!./app/assets",
+			"!./app/assets/**"
+		],
+		"watch": "./app/**/*",
+		"dest": "./dist"
+	},
+	"js": {
+		"babel": {
+			"src": "./src/**/*.js",
+			"watch": "./app/assets/**/*.js",
+			"dest": "./dist"
+		}
+	},
+	"lint": {
+		"js": {
+			"src": [
+				"./app/assets/**/*.{js,json}",
+				"./src/**/*.{js,json}"
+			]
+		}
+	}
+}

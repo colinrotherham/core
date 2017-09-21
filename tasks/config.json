@@ -1,9 +1,0 @@
-{
-	"paths": {
-		"src": "./app",
-		"build": "./dist",
-		"srcAssets": "./app/assets",
-		"buildAssets": "./dist/assets",
-		"tasks": "./tasks"
-	}
-}

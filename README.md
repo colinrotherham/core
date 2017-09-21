@@ -2,16 +2,7 @@ Core
 ====
 
 ### What is it?
-Core is a Gulp-driven starter project (fork it and start a project).  
-Try the demo: https://apps.colinr.com/core/
-
-### Features
-
-1. Critical CSS loading (100/100 on Google PageSpeed)
-2. HTML template generation via Assemble.io
-3. ES6 module bundling via Babel and webpack
-4. Sass, JavaScript and HTML linting
-5. Supports Internet Explorer 8 (yikes)
+Try the demo site built using Core: https://apps.colinr.com/core/
 
 ### Initial setup
 
@@ -23,27 +14,11 @@ As root/administrator:
 npm install -g gulp
 ```
 
-Install dependencies automatically by running:
+Add Core to your project:
 ```
-npm install
-```
-
-### Building
-All files for deployment copied to `/dist/`
-
-Output a build.
-```
-npm run build
+npm install @colinrotherham/core
 ```
 
-Output a development build, proxied via BrowserSync:
-```
-npm run dev
-```
-
-### Testing
-Run tests on the build’s HTML output
-
-```
-npm test
-```
+### Building, Testing
+See a sample project built using Core:
+https://github.com/colinrotherham/core-static/

@@ -1,7 +1,7 @@
 {
   "name": "@colinrotherham/core",
-  "version": "5.0.1",
-  "description": "Core Project Build",
+  "version": "6.0.1",
+  "description": "Core Project",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -11,25 +11,24 @@
   "homepage": "https://github.com/colinrotherham/core",
   "scripts": {
     "build": "cross-env NODE_ENV=production gulp",
-    "dev": "cross-env NODE_ENV=development gulp dev",
-    "test": "gulp test"
+    "prepublish": "npm run build"
   },
-  "devDependencies": {
+  "dependencies": {
     "assemble": "^0.24.3",
     "autoprefixer": "^7.1.4",
-    "babel-core": "^7.0.0-beta.0",
+    "babel-core": "^7.0.0-beta.1",
     "babel-loader": "^7.1.2",
-    "babel-plugin-transform-es3-member-expression-literals": "^7.0.0-beta.0",
-    "babel-plugin-transform-es3-property-literals": "^7.0.0-beta.0",
-    "babel-preset-env": "^2.0.0-beta.0",
-    "babel-register": "^7.0.0-beta.0",
+    "babel-plugin-transform-es3-member-expression-literals": "^7.0.0-beta.1",
+    "babel-plugin-transform-es3-property-literals": "^7.0.0-beta.1",
+    "babel-preset-env": "^2.0.0-beta.1",
+    "babel-register": "^7.0.0-beta.1",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.18.13",
     "cross-env": "^5.0.5",
     "css-mqpacker": "^6.0.0",
     "csswring": "^6.0.1",
     "del": "^3.0.0",
-    "eslint": "^4.6.1",
+    "eslint": "^4.7.2",
     "eslint-config-semistandard": "^11.0.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -42,6 +41,7 @@
     "fg-loadjs": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-accessibility": "^3.0.1",
+    "gulp-babel": "^7.0.0",
     "gulp-batch": "^1.0.5",
     "gulp-changed": "^3.1.0",
     "gulp-eslint": "^4.0.0",
@@ -64,20 +64,14 @@
     "jquery": "^1.12.4",
     "normalize-scss": "^7.0.0",
     "picturefill": "^3.0.2",
-    "run-sequence": "^2.1.0",
+    "run-sequence": "^2.2.0",
     "stylelint-scss": "^2.1.0",
     "uglifyjs-webpack-plugin": "^1.0.0-beta.2",
     "vinyl-buffer": "^1.0.0",
     "vinyl-named": "^1.1.0",
     "vinyl-source-stream": "^1.1.0",
-    "webpack": "^3.5.6",
+    "webpack": "^3.6.0",
     "webpack-stream": "^4.0.0"
   },
-  "browserslist": [
-    "last 2 versions",
-    "> 2%",
-    "IE >= 8",
-    "iOS >= 7"
-  ],
-  "main": "./tasks/index.js"
+  "main": "./dist/tasks/index.js"
 }

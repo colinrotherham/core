@@ -3,7 +3,7 @@ module.exports = {
 		['env', {
 			useBuiltIns: 'usage',
 			targets: {
-				node: true,
+				node: '8.4',
 				browsers: []
 			}
 		}]
