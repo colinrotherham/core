@@ -14,7 +14,7 @@ export default (config, gulp) => {
 		.pipe(sourcemaps.init())
 
 		// Process JavaScript
-		.pipe(babel(config.options || { presets: ['env'] }))
+		.pipe(babel(config.options || { presets: ['@babel/env'] }))
 
 		// Write to files
 		.pipe(sourcemaps.write('.'))

@@ -2,11 +2,13 @@
  * Dependencies
  */
 
-import 'source-map-support/register';
-import * as task from './src/tasks';
-import config from './src/config.json';
-import gulp from 'gulp';
-import sequence from 'run-sequence';
+require('source-map-support/register');
+require('@babel/register');
+
+const task = require('./src/tasks');
+const config = require('./src/config.json');
+const gulp = require('gulp');
+const sequence = require('run-sequence');
 
 /**
  * Child tasks

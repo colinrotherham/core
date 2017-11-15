@@ -1,6 +1,7 @@
 module.exports = {
 	presets: [
-		['env', {
+		['@babel/env', {
+			shippedProposals: true,
 			useBuiltIns: 'usage',
 			targets: {
 				node: '8.4',
