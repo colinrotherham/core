@@ -11,7 +11,7 @@ Install Node.JS
 As root/administrator:
 
 ```
-npm install -g gulp
+npm install -g gulp-cli
 ```
 
 Add Core to your project:
