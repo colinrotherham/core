@@ -2,39 +2,64 @@
  * Watch
  */
 
-import batch from 'gulp-batch';
-import runSequence from 'run-sequence';
-import watch from 'gulp-watch';
-
 // Return module
 export default (config, gulp) => {
-	const sequence = runSequence.use(gulp);
-
 	return () => {
+		const tasks = gulp.tree().nodes;
 
 		// Watch for static asset changes
-		watch(config.copy.watch, batch((events, done) => {
-			return sequence('copy', done);
-		}));
+		if (config.copy &&
+			tasks.includes('copy')) {
+
+			gulp.watch(
+				config.copy.watch || config.copy.src,
+				gulp.series('copy')
+			);
+		}
 
 		// Watch for CSS changes
-		watch(config.css.watch, batch((events, done) => {
-			return sequence('lint:css', 'css', done);
-		}));
+		if (config.css &&
+			tasks.includes('lint:css') &&
+			tasks.includes('css')) {
+
+			gulp.watch(
+				config.css.watch || config.css.src,
+				gulp.series('lint:css', 'css')
+			);
+		}
 
 		// Watch for JS changes
-		watch(config.js.babel.watch, batch((events, done) => {
-			return sequence('lint:js', 'js:babel', done);
-		}));
+		if (config.js &&
+			config.js.babel &&
+			tasks.includes('lint:js') &&
+			tasks.includes('js:babel')) {
+
+			gulp.watch(
+				config.js.babel.watch || config.js.babel.src,
+				gulp.series('lint:js', 'js:babel')
+			);
+		}
 
 		// Watch for HTML changes
-		watch(config.html.watch, batch((events, done) => {
-			return sequence('html', done);
-		}));
+		if (config.html &&
+			tasks.includes('html')) {
+
+			gulp.watch(
+				config.html.watch || config.html.src,
+				gulp.series('html')
+			);
+		}
 
 		// Watch for SVG changes
-		watch(config.img.fallbacks.watch, batch((events, done) => {
-			return sequence('img:fallbacks', 'img:optimise', done);
-		}));
+		if (config.img &&
+			config.img.fallbacks &&
+			tasks.includes('img:fallbacks') &&
+			tasks.includes('img:optimise')) {
+
+			gulp.watch(
+				config.img.fallbacks.watch || config.img.fallbacks.src,
+				gulp.series('img:fallbacks', 'img:optimise')
+			);
+		}
 	};
 };
