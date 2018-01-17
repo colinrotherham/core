@@ -4,28 +4,20 @@
 	},
 	"copy": {
 		"src": [
-			"./app/**/*.*",
-			"!./app/templates",
-			"!./app/templates/**",
-			"!./app/assets",
-			"!./app/assets/**"
+			"./src/**/*.*",
+			"!./src/**/*.js"
 		],
-		"watch": "./app/**/*",
 		"dest": "./dist"
 	},
 	"js": {
 		"babel": {
 			"src": "./src/**/*.js",
-			"watch": "./app/assets/**/*.js",
 			"dest": "./dist"
 		}
 	},
 	"lint": {
 		"js": {
-			"src": [
-				"./app/assets/**/*.{js,json}",
-				"./src/**/*.{js,json}"
-			]
+			"src": "./src/**/*.{js,json}"
 		}
 	}
 }
