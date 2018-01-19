@@ -60,6 +60,17 @@ export default (config, gulp) => {
 			);
 		}
 
+		// Watch for JS webpack changes
+		if (config.js &&
+			config.js.webpack &&
+			tasks.includes('js:webpack')) {
+
+			gulp.watch(
+				config.js.webpack.watch || config.js.webpack.src,
+				gulp.series('js:webpack')
+			);
+		}
+
 		// Watch for HTML changes
 		if (config.html &&
 			tasks.includes('html')) {
