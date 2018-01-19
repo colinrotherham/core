@@ -17,26 +17,46 @@ export default (config, gulp) => {
 			);
 		}
 
+		// Watch for CSS linting
+		if (config.lint &&
+			config.lint.css &&
+			tasks.includes('lint:css')) {
+
+			gulp.watch(
+				config.lint.css.watch || config.lint.css.src,
+				gulp.series('lint:css')
+			);
+		}
+
 		// Watch for CSS changes
 		if (config.css &&
-			tasks.includes('lint:css') &&
 			tasks.includes('css')) {
 
 			gulp.watch(
 				config.css.watch || config.css.src,
-				gulp.series('lint:css', 'css')
+				gulp.series('css')
 			);
 		}
 
-		// Watch for JS changes
+		// Watch for JS linting
+		if (config.lint &&
+			config.lint.js &&
+			tasks.includes('lint:js')) {
+
+			gulp.watch(
+				config.lint.js.watch || config.lint.js.src,
+				gulp.series('lint:js')
+			);
+		}
+
+		// Watch for JS babel changes
 		if (config.js &&
 			config.js.babel &&
-			tasks.includes('lint:js') &&
 			tasks.includes('js:babel')) {
 
 			gulp.watch(
 				config.js.babel.watch || config.js.babel.src,
-				gulp.series('lint:js', 'js:babel')
+				gulp.series('js:babel')
 			);
 		}
 
