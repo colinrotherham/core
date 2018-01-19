@@ -11,6 +11,7 @@
   "homepage": "https://github.com/colinrotherham/core",
   "scripts": {
     "build": "cross-env NODE_ENV=production gulp",
+    "dev": "cross-env NODE_ENV=development gulp dev",
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
