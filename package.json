@@ -63,7 +63,6 @@
     "handlebars-helpers": "^0.10.0",
     "html5shiv": "^3.7.3",
     "htmlhint-stylish": "^1.0.3",
-    "jquery": "^1.12.4",
     "normalize-scss": "^7.0.1",
     "picturefill": "^3.0.2",
     "stylelint": "^9.1.3",
