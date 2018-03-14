@@ -17,6 +17,16 @@ export default (config, gulp) => {
 			);
 		}
 
+		// Watch for HTML changes
+		if (config.html &&
+			tasks.includes('html')) {
+
+			gulp.watch(
+				config.html.watch || config.html.src,
+				gulp.series('html')
+			);
+		}
+
 		// Watch for CSS linting
 		if (config.lint &&
 			config.lint.css &&
@@ -68,16 +78,6 @@ export default (config, gulp) => {
 			gulp.watch(
 				config.js.webpack.watch || config.js.webpack.src,
 				gulp.series('js:webpack')
-			);
-		}
-
-		// Watch for HTML changes
-		if (config.html &&
-			tasks.includes('html')) {
-
-			gulp.watch(
-				config.html.watch || config.html.src,
-				gulp.series('html')
 			);
 		}
 
