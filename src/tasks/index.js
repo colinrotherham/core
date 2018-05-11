@@ -1,8 +1,6 @@
 /**
  * Tasks
  */
-
-// Expose tasks from files
 export { default as clean } from './clean';
 export { default as copy } from './copy';
 export { default as css } from './css';

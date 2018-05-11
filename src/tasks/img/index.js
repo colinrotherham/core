@@ -1,9 +1,7 @@
-/**
- * Image tasks
- */
-
 import fallbacks from './fallbacks';
 import optimise from './optimise';
 
-// Expose tasks from files
+/**
+ * Image tasks
+ */
 export default { fallbacks, optimise };

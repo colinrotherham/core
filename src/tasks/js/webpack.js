@@ -1,7 +1,3 @@
-/**
- * JavaScript (client-side)
- */
-
 import browserSync from 'browser-sync';
 import fs from 'fs';
 import named from 'vinyl-named';
@@ -17,7 +13,9 @@ if (fs.existsSync(optionsPath)) {
 	options = require(optionsPath).default;
 }
 
-// Return module
+/**
+ * JavaScript (client-side)
+ */
 export default (config, gulp) => {
 
 	return () => gulp.src(config.src, { dot: true })

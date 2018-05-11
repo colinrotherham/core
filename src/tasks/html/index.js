@@ -1,14 +1,12 @@
-/**
- * HTML
- */
-
 import assemble from 'assemble';
 import browserSync from 'browser-sync';
 import handlebarsHelpers from 'handlebars-helpers';
 import outputFileContent from './helpers/output-file-content';
 import rename from 'gulp-rename';
 
-// Return module
+/**
+ * HTML
+ */
 export default (config, gulp) => {
 	const app = assemble();
 

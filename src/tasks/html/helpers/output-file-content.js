@@ -1,8 +1,6 @@
 /**
  * File output (i.e. inlining content)
  */
-
-// Return helper
 export default path => {
 	let contents = '';
 

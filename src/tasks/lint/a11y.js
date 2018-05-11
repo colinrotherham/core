@@ -1,10 +1,8 @@
+import accessibility from 'gulp-accessibility';
+
 /**
  * Accessibility test HTML
  */
-
-import accessibility from 'gulp-accessibility';
-
-// Return module
 export default (config, gulp) => {
 
 	const options = config.options || {

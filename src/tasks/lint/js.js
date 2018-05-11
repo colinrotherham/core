@@ -1,10 +1,8 @@
+import eslint from 'gulp-eslint';
+
 /**
  * Lint JS for errors etc
  */
-
-import eslint from 'gulp-eslint';
-
-// Return module
 export default (config, gulp) => {
 
 	// Return module

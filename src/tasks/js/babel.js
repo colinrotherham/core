@@ -1,11 +1,9 @@
-/**
- * JavaScript (server-side)
- */
-
 import babel from 'gulp-babel';
 import sourcemaps from 'gulp-sourcemaps';
 
-// Return module
+/**
+ * JavaScript (server-side)
+ */
 export default (config, gulp) => {
 
 	return () => gulp.src(config.src, { dot: true })

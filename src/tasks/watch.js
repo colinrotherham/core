@@ -1,8 +1,6 @@
 /**
  * Watch
  */
-
-// Return module
 export default (config, gulp) => {
 	return () => {
 		const tasks = gulp.tree().nodes;

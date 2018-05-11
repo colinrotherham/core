@@ -1,10 +1,8 @@
+import stylelint from 'gulp-stylelint';
+
 /**
  * Lint Sass for errors etc
  */
-
-import stylelint from 'gulp-stylelint';
-
-// Return module
 export default (config, gulp) => {
 
 	const options = config.options || {

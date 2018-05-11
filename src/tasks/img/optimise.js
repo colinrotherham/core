@@ -1,10 +1,8 @@
+import imagemin from 'gulp-imagemin';
+
 /**
  * Output optimised images
  */
-
-import imagemin from 'gulp-imagemin';
-
-// Return module
 export default (config, gulp) => {
 
 	const options = config.options || [

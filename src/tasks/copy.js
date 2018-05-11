@@ -1,11 +1,9 @@
-/**
- * Copy
- */
-
 import changed from 'gulp-changed';
 import preservetime from 'gulp-preservetime';
 
-// Return module
+/**
+ * Copy
+ */
 export default (config, gulp) => {
 
 	const options = config.options || {

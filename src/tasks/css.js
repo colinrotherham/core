@@ -1,7 +1,3 @@
-/**
- * CSS
- */
-
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
 import csswring from 'csswring';
@@ -11,7 +7,9 @@ import rename from 'gulp-rename';
 import sass from 'gulp-sass';
 import sourcemaps from 'gulp-sourcemaps';
 
-// Return module
+/**
+ * CSS
+ */
 export default (config, gulp) => {
 
 	// Module options

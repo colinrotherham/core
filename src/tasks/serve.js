@@ -1,10 +1,8 @@
+import browserSync from 'browser-sync';
+
 /**
  * Serve
  */
-
-import browserSync from 'browser-sync';
-
-// Return module
 export default config => {
 
 	const options = config.options || {

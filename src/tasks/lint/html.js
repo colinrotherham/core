@@ -1,10 +1,8 @@
+import htmlhint from 'gulp-htmlhint';
+
 /**
  * Lint HTML for errors etc
  */
-
-import htmlhint from 'gulp-htmlhint';
-
-// Return module
 export default (config, gulp) => {
 
 	// Return module
