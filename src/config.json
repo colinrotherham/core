@@ -1,23 +1,23 @@
 {
-	"clean": {
-		"src": "./dist"
-	},
-	"copy": {
-		"src": [
-			"./src/**/*.*",
-			"!./src/**/*.js"
-		],
-		"dest": "./dist"
-	},
-	"js": {
-		"babel": {
-			"src": "./src/**/*.js",
-			"dest": "./dist"
-		}
-	},
-	"lint": {
-		"js": {
-			"src": "./src/**/*.{js,json}"
-		}
-	}
+  "clean": {
+    "src": "./dist"
+  },
+  "copy": {
+    "src": [
+      "./src/**/*.*",
+      "!./src/**/*.js"
+    ],
+    "dest": "./dist"
+  },
+  "js": {
+    "babel": {
+      "src": "./src/**/*.js",
+      "dest": "./dist"
+    }
+  },
+  "lint": {
+    "js": {
+      "src": "./src/**/*.{js,json}"
+    }
+  }
 }

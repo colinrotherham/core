@@ -10,7 +10,7 @@ let options = {};
 const optionsPath = path.resolve(process.cwd(), 'webpack.config.js');
 
 if (fs.existsSync(optionsPath)) {
-	options = require(optionsPath).default;
+  options = require(optionsPath).default;
 }
 
 /**
@@ -18,13 +18,13 @@ if (fs.existsSync(optionsPath)) {
  */
 export default (config, gulp) => {
 
-	return () => gulp.src(config.src, { dot: true })
-		.pipe(named())
-		.pipe(stream(options, webpack))
+  return () => gulp.src(config.src, { dot: true })
+    .pipe(named())
+    .pipe(stream(options, webpack))
 
-		// Write to files
-		.pipe(gulp.dest(config.dest))
+  // Write to files
+    .pipe(gulp.dest(config.dest))
 
-		// Reload in browser
-		.pipe(browserSync.stream({ match: '**/*.js' }));
+  // Reload in browser
+    .pipe(browserSync.stream({ match: '**/*.js' }));
 };

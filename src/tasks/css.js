@@ -12,55 +12,55 @@ import sourcemaps from 'gulp-sourcemaps';
  */
 export default (config, gulp) => {
 
-	// Module options
-	const options = config.options || {
+  // Module options
+  const options = config.options || {
 
-		autoprefixer: {
-			cascade: false,
-			map: true,
-			remove: true
-		},
+    autoprefixer: {
+      cascade: false,
+      map: true,
+      remove: true,
+    },
 
-		csswring: {
-			removeAllComments: true
-		},
+    csswring: {
+      removeAllComments: true,
+    },
 
-		mqpacker: {
-			sort: true
-		},
+    mqpacker: {
+      sort: true,
+    },
 
-		sass: {
-			style: 'expanded',
-			includePaths: [
-				'node_modules'
-			]
-		}
-	};
+    sass: {
+      style: 'expanded',
+      includePaths: [
+        'node_modules',
+      ],
+    },
+  };
 
-	return () => gulp.src(config.src, { dot: true })
+  return () => gulp.src(config.src, { dot: true })
 
-		// Start sourcemaps
-		.pipe(sourcemaps.init())
+  // Start sourcemaps
+    .pipe(sourcemaps.init())
 
-		// Process Sass
-		.pipe(sass(options.sass).on('error', sass.logError))
+  // Process Sass
+    .pipe(sass(options.sass).on('error', sass.logError))
 
-		// Process PostCSS
-		.pipe(postcss([
-			autoprefixer(options.autoprefixer),
-			csswring(options.csswring),
-			mqpacker(options.mqpacker)
-		]))
+  // Process PostCSS
+    .pipe(postcss([
+      autoprefixer(options.autoprefixer),
+      csswring(options.csswring),
+      mqpacker(options.mqpacker),
+    ]))
 
-		// Rename
-		.pipe(rename({
-			extname: '.min.css'
-		}))
+  // Rename
+    .pipe(rename({
+      extname: '.min.css',
+    }))
 
-		// Write to files
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(config.dest))
+  // Write to files
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.dest))
 
-		// Reload in browser
-		.pipe(browserSync.stream({ match: '**/*.css' }));
+  // Reload in browser
+    .pipe(browserSync.stream({ match: '**/*.css' }));
 };

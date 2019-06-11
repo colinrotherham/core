@@ -6,15 +6,15 @@ import sourcemaps from 'gulp-sourcemaps';
  */
 export default (config, gulp) => {
 
-	return () => gulp.src(config.src, { dot: true })
+  return () => gulp.src(config.src, { dot: true })
 
-		// Start sourcemaps
-		.pipe(sourcemaps.init())
+  // Start sourcemaps
+    .pipe(sourcemaps.init())
 
-		// Process JavaScript
-		.pipe(babel(config.options || { presets: ['@babel/env'] }))
+  // Process JavaScript
+    .pipe(babel(config.options || { presets: ['@babel/env'] }))
 
-		// Write to files
-		.pipe(sourcemaps.write('.'))
-		.pipe(gulp.dest(config.dest));
+  // Write to files
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(config.dest));
 };

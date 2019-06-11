@@ -6,12 +6,12 @@ import preservetime from 'gulp-preservetime';
  */
 export default (config, gulp) => {
 
-	const options = config.options || {
-		hasChanged: changed.compareContents
-	};
+  const options = config.options || {
+    hasChanged: changed.compareContents,
+  };
 
-	return () => gulp.src(config.src, { dot: true })
-		.pipe(changed(config.dest, options))
-		.pipe(gulp.dest(config.dest))
-		.pipe(preservetime());
+  return () => gulp.src(config.src, { dot: true })
+    .pipe(changed(config.dest, options))
+    .pipe(gulp.dest(config.dest))
+    .pipe(preservetime());
 };

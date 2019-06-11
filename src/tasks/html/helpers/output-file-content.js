@@ -2,15 +2,16 @@
  * File output (i.e. inlining content)
  */
 export default path => {
-	let contents = '';
+  let contents = '';
 
-	try {
-		contents = require('fs').readFileSync(path, 'utf8');
-	}
+  try {
+    contents = require('fs').readFileSync(path, 'utf8');
+  }
 
-	catch (err) {
-		// No content
-	}
+  catch (err) {
 
-	return contents.trim();
+    // No content
+  }
+
+  return contents.trim();
 };

@@ -5,8 +5,8 @@ import eslint from 'gulp-eslint';
  */
 export default (config, gulp) => {
 
-	// Return module
-	return () => gulp.src(config.src, { dot: true })
-		.pipe(eslint())
-		.pipe(eslint.format());
+  // Return module
+  return () => gulp.src(config.src, { dot: true })
+    .pipe(eslint())
+    .pipe(eslint.format());
 };

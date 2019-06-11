@@ -5,17 +5,17 @@ import stylelint from 'gulp-stylelint';
  */
 export default (config, gulp) => {
 
-	const options = config.options || {
-		failAfterError: false,
-		reporters: [
-			{
-				formatter: 'string',
-				console: true
-			}
-		]
-	};
+  const options = config.options || {
+    failAfterError: false,
+    reporters: [
+      {
+        formatter: 'string',
+        console: true,
+      },
+    ],
+  };
 
-	// Return module
-	return () => gulp.src(config.src, { dot: true })
-		.pipe(stylelint(options));
+  // Return module
+  return () => gulp.src(config.src, { dot: true })
+    .pipe(stylelint(options));
 };

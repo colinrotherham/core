@@ -25,28 +25,28 @@ gulp.task('watch', task.watch(config, gulp));
 
 // Shared build tasks
 gulp.task(
-	'build',
-	gulp.series(
-		'lint:js',
-		'js:babel'
-	)
+  'build',
+  gulp.series(
+    'lint:js',
+    'js:babel',
+  ),
 );
 
 // Default tasks
 gulp.task(
-	'default',
-	gulp.series(
-		'clean',
-		'copy',
-		'build'
-	)
+  'default',
+  gulp.series(
+    'clean',
+    'copy',
+    'build',
+  ),
 );
 
 // Development tasks
 gulp.task(
-	'dev',
-	gulp.series(
-		'default',
-		'watch'
-	)
+  'dev',
+  gulp.series(
+    'default',
+    'watch',
+  ),
 );
