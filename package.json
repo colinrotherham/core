@@ -10,6 +10,9 @@
   "author": "Colin Rotherham",
   "homepage": "https://github.com/colinrotherham/core",
   "scripts": {
+    "test": "npm run test:dependencies && npm audit && npm run test:lint",
+    "test:dependencies": "npm ls --depth=0",
+    "test:lint": "eslint ./src --ext .js,.mjs",
     "build": "cross-env NODE_ENV=production gulp",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "prepublishOnly": "npm run build"
