@@ -1,0 +1,87 @@
+module.exports = {
+  env: {
+    node: true
+  },
+  extends: 'semistandard',
+  parser: 'babel-eslint',
+  parserOptions: {
+    ecmaVersion: 2017,
+    sourceType: 'module'
+  },
+  plugins: [
+    'json'
+  ],
+  rules: {
+    'array-bracket-spacing': [
+      'warn',
+      'never',
+      {
+        arraysInArrays: false,
+        objectsInArrays: false
+      }
+    ],
+    'brace-style': [
+      'error',
+      'stroustrup'
+    ],
+    'lines-around-directive': [
+      'warn',
+      'always'
+    ],
+    indent: [
+      'error',
+      'tab',
+      {
+        SwitchCase: 1
+      }
+    ],
+    'newline-before-return': 'warn',
+    'no-tabs': 0,
+    'object-curly-spacing': [
+      'warn',
+      'always',
+      {
+        arraysInObjects: true,
+        objectsInObjects: true
+      }
+    ],
+    'padded-blocks': 0,
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'function'
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'multiline-block-like'
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'block-like'
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'block'
+      }
+    ],
+    'prefer-const': 'warn',
+    'sort-imports': [
+      'error',
+      {
+        ignoreCase: false,
+        ignoreMemberSort: false,
+        memberSyntaxSortOrder: [
+          'none',
+          'all',
+          'multiple',
+          'single'
+        ]
+      }
+    ]
+  }
+}
