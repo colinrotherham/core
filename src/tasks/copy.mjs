@@ -5,7 +5,6 @@ import preservetime from 'gulp-preservetime';
  * Copy
  */
 export default (config, gulp) => {
-
   const options = config.options || {
     hasChanged: changed.compareContents,
   };

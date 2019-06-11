@@ -4,7 +4,6 @@ import imagemin from 'gulp-imagemin';
  * Output optimised images
  */
 export default (config, gulp) => {
-
   const options = config.options || [
     imagemin.gifsicle(),
     imagemin.jpegtran({

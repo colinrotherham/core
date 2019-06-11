@@ -1,7 +1,7 @@
 import assemble from 'assemble';
 import browserSync from 'browser-sync';
 import handlebarsHelpers from 'handlebars-helpers';
-import outputFileContent from './helpers/output-file-content';
+import outputFileContent from './helpers/output-file-content.mjs';
 import rename from 'gulp-rename';
 
 /**

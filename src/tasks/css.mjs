@@ -39,28 +39,28 @@ export default (config, gulp) => {
 
   return () => gulp.src(config.src, { dot: true })
 
-  // Start sourcemaps
+    // Start sourcemaps
     .pipe(sourcemaps.init())
 
-  // Process Sass
+    // Process Sass
     .pipe(sass(options.sass).on('error', sass.logError))
 
-  // Process PostCSS
+    // Process PostCSS
     .pipe(postcss([
       autoprefixer(options.autoprefixer),
       csswring(options.csswring),
       mqpacker(options.mqpacker),
     ]))
 
-  // Rename
+    // Rename
     .pipe(rename({
       extname: '.min.css',
     }))
 
-  // Write to files
+    // Write to files
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.dest))
 
-  // Reload in browser
+    // Reload in browser
     .pipe(browserSync.stream({ match: '**/*.css' }));
 };

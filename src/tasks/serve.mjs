@@ -4,7 +4,6 @@ import browserSync from 'browser-sync';
  * Serve
  */
 export default config => {
-
   const options = config.options || {
     notify: false,
     open: false,

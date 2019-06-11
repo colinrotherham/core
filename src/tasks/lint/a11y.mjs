@@ -4,7 +4,6 @@ import accessibility from 'gulp-accessibility';
  * Accessibility test HTML
  */
 export default (config, gulp) => {
-
   const options = config.options || {
     accessibilityLevel: 'WCAG2AA',
     force: true,

@@ -1,9 +1,6 @@
-/**
- * Dependencies
- */
-const task = require('./src/tasks');
-const config = require('./src/config.json');
-const gulp = require('gulp');
+import * as task from './src/tasks/index.mjs';
+import config from './src/config.json';
+import gulp from 'gulp';
 
 /**
  * Child tasks
