@@ -1,15 +1,15 @@
 module.exports = {
   env: {
-    node: true
+    node: true,
   },
   extends: 'semistandard',
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
-    sourceType: 'module'
+    ecmaVersion: 2019,
+    sourceType: 'module',
   },
   plugins: [
-    'json'
+    'json',
   ],
   rules: {
     'array-bracket-spacing': [
@@ -17,33 +17,61 @@ module.exports = {
       'never',
       {
         arraysInArrays: false,
-        objectsInArrays: false
-      }
+        objectsInArrays: false,
+      },
+    ],
+    'arrow-parens': [
+      'error',
+      'as-needed',
+    ],
+    'capitalized-comments': [
+      'warn',
+      'always',
+      {
+        ignorePattern: 'webpack',
+      },
+    ],
+    'comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'always-multiline',
+      exports: 'always-multiline',
+      functions: 'always-multiline',
+    }],
+    'eol-last': [
+      'error',
+      'always',
     ],
     'brace-style': [
       'error',
-      'stroustrup'
+      'stroustrup',
+    ],
+    'lines-around-comment': [
+      'warn',
+      {
+        beforeLineComment: true,
+        beforeBlockComment: true,
+        allowBlockStart: false,
+        allowClassStart: false,
+        allowObjectStart: false,
+        allowArrayStart: false,
+      },
     ],
     'lines-around-directive': [
       'warn',
-      'always'
+      'always',
     ],
-    indent: [
-      'error',
-      'tab',
-      {
-        SwitchCase: 1
-      }
+    'lines-between-class-members': [
+      'warn',
+      'always',
     ],
-    'newline-before-return': 'warn',
-    'no-tabs': 0,
     'object-curly-spacing': [
       'warn',
       'always',
       {
         arraysInObjects: true,
-        objectsInObjects: true
-      }
+        objectsInObjects: true,
+      },
     ],
     'padded-blocks': 0,
     'padding-line-between-statements': [
@@ -51,23 +79,23 @@ module.exports = {
       {
         blankLine: 'always',
         prev: '*',
-        next: 'function'
+        next: 'function',
       },
       {
         blankLine: 'always',
         prev: '*',
-        next: 'multiline-block-like'
+        next: 'multiline-block-like',
       },
       {
         blankLine: 'always',
         prev: '*',
-        next: 'block-like'
+        next: 'block-like',
       },
       {
         blankLine: 'always',
         prev: '*',
-        next: 'block'
-      }
+        next: 'block',
+      },
     ],
     'prefer-const': 'warn',
     'sort-imports': [
@@ -79,9 +107,9 @@ module.exports = {
           'none',
           'all',
           'multiple',
-          'single'
-        ]
-      }
-    ]
-  }
-}
+          'single',
+        ],
+      },
+    ],
+  },
+};
