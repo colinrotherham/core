@@ -1,7 +1,6 @@
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
-import csswring from 'csswring';
-import mqpacker from 'css-mqpacker';
+import csso from 'csso';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';
@@ -21,12 +20,8 @@ export default (config, gulp) => {
       remove: true,
     },
 
-    csswring: {
-      removeAllComments: true,
-    },
-
-    mqpacker: {
-      sort: true,
+    csso: {
+      comments: false,
     },
 
     sass: {
@@ -48,8 +43,7 @@ export default (config, gulp) => {
     // Process PostCSS
     .pipe(postcss([
       autoprefixer(options.autoprefixer),
-      csswring(options.csswring),
-      mqpacker(options.mqpacker),
+      csso(options.csso),
     ]))
 
     // Rename
