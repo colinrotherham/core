@@ -1,17 +1,7 @@
 import browserSync from 'browser-sync';
-import { existsSync } from 'fs';
 import named from 'vinyl-named';
-import path from 'path';
 import stream from 'webpack-stream';
 import webpack from 'webpack';
-
-// Use config for running process
-let options = {};
-const optionsPath = path.resolve(process.cwd(), 'webpack.config.js');
-
-if (existsSync(optionsPath)) {
-  options = require(optionsPath).default;
-}
 
 /**
  * JavaScript (client-side)
@@ -19,7 +9,7 @@ if (existsSync(optionsPath)) {
 export default (config, gulp) => {
   return () => gulp.src(config.src, { dot: true })
     .pipe(named())
-    .pipe(stream(options, webpack))
+    .pipe(stream(config.options, webpack))
 
     // Write to files
     .pipe(gulp.dest(config.dest))
