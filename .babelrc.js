@@ -6,8 +6,8 @@ module.exports = {
       corejs: 3,
       targets: {
         node: '10.16',
-        browsers: []
-      }
-    }]
-  ]
+        browsers: [],
+      },
+    }],
+  ],
 };
