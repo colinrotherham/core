@@ -8,7 +8,6 @@ import gulp from 'gulp';
 gulp.task('clean', task.clean(config.clean));
 gulp.task('copy', task.copy(config.copy, gulp));
 gulp.task('js:babel', task.js.babel(config.js.babel, gulp));
-gulp.task('lint:js', task.lint.js(config.lint.js, gulp));
 gulp.task('watch', task.watch(config, gulp));
 
 /**
@@ -19,7 +18,6 @@ gulp.task('watch', task.watch(config, gulp));
 gulp.task(
   'build',
   gulp.series(
-    'lint:js',
     'js:babel',
   ),
 );

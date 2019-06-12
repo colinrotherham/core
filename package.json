@@ -12,8 +12,9 @@
   "scripts": {
     "test": "npm run test:dependencies && npm audit && npm run test:lint",
     "test:dependencies": "npm ls --depth=0",
-    "test:lint": "eslint ./src --ext .js,.mjs",
-    "build": "cross-env NODE_ENV=production gulp",
+    "test:lint:js": "eslint ./src --ext .js,.json,.mjs,",
+    "test:lint": "npm run test:lint:js",
+    "build": "cross-env NODE_ENV=production npm test && gulp",
     "dev": "cross-env NODE_ENV=development gulp dev",
     "prepublishOnly": "npm run build"
   },
@@ -51,7 +52,6 @@
     "gulp-accessibility": "^3.1.1",
     "gulp-babel": "^8.0.0",
     "gulp-changed": "^4.0.0",
-    "gulp-eslint": "^5.0.0",
     "gulp-filter": "^6.0.0",
     "gulp-htmlhint": "^2.2.1",
     "gulp-imagemin": "^6.0.0",
@@ -60,7 +60,6 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
-    "gulp-stylelint": "^9.0.0",
     "gulp-svg2png": "^2.0.2",
     "handlebars": "^4.1.2",
     "handlebars-helpers": "^0.10.0",

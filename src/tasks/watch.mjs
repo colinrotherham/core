@@ -25,17 +25,6 @@ export default (config, gulp) => {
       );
     }
 
-    // Watch for CSS linting
-    if (config.lint &&
-      config.lint.css &&
-      tasks.includes('lint:css')) {
-
-      gulp.watch(
-        config.lint.css.watch || config.lint.css.src,
-        gulp.series('lint:css'),
-      );
-    }
-
     // Watch for CSS changes
     if (config.css &&
       tasks.includes('css')) {
@@ -43,17 +32,6 @@ export default (config, gulp) => {
       gulp.watch(
         config.css.watch || config.css.src,
         gulp.series('css'),
-      );
-    }
-
-    // Watch for JS linting
-    if (config.lint &&
-      config.lint.js &&
-      tasks.includes('lint:js')) {
-
-      gulp.watch(
-        config.lint.js.watch || config.lint.js.src,
-        gulp.series('lint:js'),
       );
     }
 

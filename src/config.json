@@ -14,10 +14,5 @@
       "src": "./src/**/*.js",
       "dest": "./dist"
     }
-  },
-  "lint": {
-    "js": {
-      "src": "./src/**/*.{js,json}"
-    }
   }
 }
