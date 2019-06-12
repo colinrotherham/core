@@ -6,13 +6,7 @@ Try the demo site built using Core: https://apps.colinr.com/core/
 
 ### Initial setup
 
-Install Node.JS
-
-As root/administrator:
-
-```
-npm install -g gulp-cli
-```
+Install Node.JS v10.16+
 
 Add Core to your project:
 ```

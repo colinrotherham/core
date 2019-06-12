@@ -3,9 +3,9 @@ module.exports = {
     ['@babel/env', {
       shippedProposals: true,
       useBuiltIns: 'usage',
-      corejs: '3.0.0',
+      corejs: 3,
       targets: {
-        node: '8.4',
+        node: '10.16',
         browsers: []
       }
     }]
