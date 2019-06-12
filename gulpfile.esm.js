@@ -9,6 +9,7 @@ gulp.task('clean', task.clean(config.clean));
 gulp.task('copy', task.copy(config.copy, gulp));
 gulp.task('js:babel', task.js.babel(config.js.babel, gulp));
 gulp.task('watch', task.watch(config, gulp));
+gulp.task('html:nunjucks', task.html.nunjucks(config.html.nunjucks, gulp));
 
 /**
  * Main tasks

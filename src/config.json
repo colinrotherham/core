@@ -14,5 +14,19 @@
       "src": "./src/**/*.js",
       "dest": "./dist"
     }
+  },
+  "html": {
+    "nunjucks":   {
+      "src": "./src/views/*.njk",
+      "options": {
+        "views": "./src/views"
+      },
+      "watch": [
+        "./src/views/**/*.njk",
+        "./dist/assets/css/critical.min.css",
+        "./dist/assets/js/critical.min.js"
+      ],
+      "dest": "./dist"
+    }
   }
 }
