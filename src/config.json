@@ -5,13 +5,13 @@
   "copy": {
     "src": [
       "./src/**/*.*",
-      "!./src/**/*.js"
+      "!./src/**/*.mjs"
     ],
     "dest": "./dist"
   },
   "js": {
     "babel": {
-      "src": "./src/**/*.js",
+      "src": "./src/**/*.mjs",
       "dest": "./dist"
     }
   },

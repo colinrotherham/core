@@ -63,5 +63,5 @@
     "webpack": "^4.33.0",
     "webpack-stream": "^5.2.1"
   },
-  "main": "./dist/tasks/index.mjs"
+  "main": "./dist/tasks/index.js"
 }
