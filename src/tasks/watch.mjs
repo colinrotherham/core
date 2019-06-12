@@ -17,11 +17,12 @@ export default (config, gulp) => {
 
     // Watch for HTML changes
     if (config.html &&
-      tasks.includes('html')) {
+      config.html.nunjucks &&
+      tasks.includes('html:nunjucks')) {
 
       gulp.watch(
-        config.html.watch || config.html.src,
-        gulp.series('html'),
+        config.html.nunjucks.watch || config.html.nunjucks.src,
+        gulp.series('html:nunjucks'),
       );
     }
 
