@@ -1,6 +1,6 @@
 import autoprefixer from 'autoprefixer';
 import browserSync from 'browser-sync';
-import csso from 'csso';
+import csso from 'postcss-csso';
 import postcss from 'gulp-postcss';
 import rename from 'gulp-rename';
 import sass from 'gulp-sass';

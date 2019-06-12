@@ -32,7 +32,6 @@
     "browser-sync": "^2.26.7",
     "core-js": "^3.0.0",
     "cross-env": "^5.2.0",
-    "csso": "^3.5.1",
     "del": "^4.1.1",
     "eslint": "^5.16.0",
     "eslint-config-semistandard": "^13.0.0",
@@ -59,6 +58,7 @@
     "htmlhint-stylish": "^1.0.3",
     "js-yaml": "^3.13.1",
     "nunjucks": "^3.2.0",
+    "postcss-csso": "^3.0.0",
     "vinyl-named": "^1.1.0",
     "webpack": "^4.33.0",
     "webpack-stream": "^5.2.1"
