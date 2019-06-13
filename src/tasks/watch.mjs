@@ -58,15 +58,14 @@ export default (config, gulp) => {
       );
     }
 
-    // Watch for SVG changes
+    // Watch for images to optimise
     if (config.img &&
-      config.img.fallbacks &&
-      tasks.includes('img:fallbacks') &&
+      config.img.optimise &&
       tasks.includes('img:optimise')) {
 
       gulp.watch(
-        config.img.fallbacks.watch || config.img.fallbacks.src,
-        gulp.series('img:fallbacks', 'img:optimise'),
+        config.img.optimise.watch || config.img.optimise.src,
+        gulp.series('img:optimise'),
       );
     }
   };
