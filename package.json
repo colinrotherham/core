@@ -28,6 +28,7 @@
     "autoprefixer": "^9.6.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.6",
+    "babel-plugin-module-extension": "^0.1.1",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.26.7",
     "core-js": "^3.0.0",
@@ -63,5 +64,5 @@
     "webpack": "^4.33.0",
     "webpack-stream": "^5.2.1"
   },
-  "main": "./dist/tasks/index.mjs"
+  "main": "./dist/tasks/index.js"
 }

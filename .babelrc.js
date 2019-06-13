@@ -1,4 +1,9 @@
 module.exports = {
+  plugins: [
+    ['module-extension', {
+      mjs: 'js',
+    }],
+  ],
   presets: [
     ['@babel/preset-env', {
       shippedProposals: true,
