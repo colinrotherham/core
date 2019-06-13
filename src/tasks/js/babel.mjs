@@ -1,4 +1,5 @@
 import babel from 'gulp-babel';
+import revertPath from 'gulp-revert-path';
 import sourcemaps from 'gulp-sourcemaps';
 
 /**
@@ -12,6 +13,7 @@ export default (config, gulp) => {
 
     // Process JavaScript
     .pipe(babel(config.options || { presets: ['@babel/env'] }))
+    .pipe(revertPath())
 
     // Write to files
     .pipe(sourcemaps.write('.'))
