@@ -40,7 +40,9 @@ export default (config, gulp) => {
   };
 
   // Set up Nunjucks
-  const env = nunjucks.configure(options.views);
+  const env = nunjucks.configure(options.views, {
+    noCache: true,
+  });
 
   // Add globals
   for (const method in globals) {
