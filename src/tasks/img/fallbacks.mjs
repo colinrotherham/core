@@ -1,5 +1,5 @@
 import browserSync from 'browser-sync';
-import svg2png from 'gulp-svg2png';
+import svg2png from 'gulp-svg2png-update';
 
 /**
  * Generate PNG fallbacks for SVGs
