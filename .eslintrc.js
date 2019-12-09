@@ -2,7 +2,10 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: 'semistandard',
+  extends: [
+    'semistandard',
+    'plugin:json/recommended',
+  ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2019,
