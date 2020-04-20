@@ -6,7 +6,7 @@ import imagemin from 'gulp-imagemin';
 export default (config, gulp) => {
   const options = config.options || [
     imagemin.gifsicle(),
-    imagemin.jpegtran({
+    imagemin.mozjpeg({
       progressive: true,
     }),
     imagemin.optipng(),
