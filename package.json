@@ -58,7 +58,7 @@
     "htmlhint-stylish": "^1.0.3",
     "js-yaml": "^3.13.1",
     "nunjucks": "^3.2.1",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-csso": "^4.0.0",
     "stylelint": "^13.3.2",
     "stylelint-scss": "^3.17.1",
